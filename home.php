@@ -18,7 +18,6 @@
             while (have_posts()):
                 the_post(); ?>
                 <a href="<?php the_permalink(); ?>" class="block group">
-                    <p>dasdjgv</p>
                     <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition h-full">
                         <?php if (has_post_thumbnail()):
                             the_post_thumbnail('medium_large', ['class' => 'w-full h-56 object-cover']);
