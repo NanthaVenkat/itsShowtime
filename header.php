@@ -7,46 +7,36 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('bg-gray-50 text-gray-900 antialiased'); ?>>
     <?php wp_body_open(); ?>
 
-    <?php $is_front_page = is_front_page(); ?>
-    <header class="nks-header <?php echo $is_front_page ? 'nks-header--transparent' : ''; ?>">
-        <div class="nks-shell nks-header__inner">
-            <div class="nks-brand">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="site-logo max-w-[200px]">
                 <?php if (has_custom_logo()) {
                     the_custom_logo();
                 } else { ?>
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="nks-brand__text"><?php bloginfo('name'); ?></a>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-2xl font-bold uppercase tracking-wider">
+                        <?php bloginfo('name'); ?>
+                    </a>
                 <?php } ?>
             </div>
 
-            <nav class="nks-nav" aria-label="Primary Navigation">
-                <?php
-                wp_nav_menu([
+            <!-- Menu -->
+            <nav class="hidden md:block">
+                <?php wp_nav_menu([
                     'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => 'nks-nav__list',
-                    'fallback_cb'    => false,
-                ]);
-                ?>
+                    'container' => false,
+                    'menu_class' => 'flex space-x-8 font-medium hover:text-blue-600 transition',
+                ]); ?>
             </nav>
 
-            <button class="nks-mobile-toggle" id="nks-mobile-toggle" type="button" aria-label="Open Menu" aria-expanded="false" aria-controls="nks-mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <!-- Mobile menu button -->
+            <button id="menu-toggle" class="md:hidden p-2 text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
             </button>
-        </div>
-
-        <div class="nks-mobile-menu" id="nks-mobile-menu">
-            <?php
-            wp_nav_menu([
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'nks-mobile-menu__list',
-                'fallback_cb'    => false,
-            ]);
-            ?>
         </div>
     </header>
