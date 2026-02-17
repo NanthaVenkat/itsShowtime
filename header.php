@@ -12,7 +12,7 @@
     <?php wp_body_open(); ?>
 
     <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div class="container mx-auto py-4 px-6 lg:px-12 flex justify-between items-center">
             <!-- Logo -->
             <div class="site-logo">
                 <?php if (has_custom_logo()) {
@@ -24,29 +24,17 @@
 
             <!-- Desktop Menu -->
             <nav class="hidden md:flex items-center space-x-10">
-                <?php
-                $menu_items = [
-                    'Home' => home_url('/'),
-                    'Gallery' => '#',
-                    'Blog' => '#',
-                    'About Us' => '#',
-                    'Services' => '#',
-                ];
-
-                foreach ($menu_items as $name => $link): ?>
-                    <a href="<?php echo $link; ?>"
-                        class="text-gray-300 hover:text-white text-sm uppercase tracking-widest font-medium transition-colors duration-300 relative group">
-                        <?php echo $name; ?>
-                        <span
-                            class="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                <?php endforeach; ?>
+                <?php wp_nav_menu([
+                    'theme_location' => 'primary',
+                    'container' => false,
+                    'menu_class' => 'flex gap-10 transition',
+                ]); ?>
             </nav>
 
             <!-- CTA Button -->
             <div class="hidden md:block">
                 <a href="#"
-                    class="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-lg hover:shadow-red-600/30 transform hover:-translate-y-0.5">
+                    class="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium capitalize text-lg tracking-wider transition-all duration-300 hover:shadow-red-600/30 transform hover:-translate-y-0.5 whitespace-nowrap">
                     Contact Us
                 </a>
             </div>
@@ -64,14 +52,13 @@
         <div id="mobile-menu"
             class="fixed inset-0 bg-black/95 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8">
             <button id="menu-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-            <?php foreach ($menu_items as $name => $link): ?>
-                <a href="<?php echo $link; ?>"
-                    class="text-2xl font-bold uppercase tracking-widest hover:text-red-500 transition-colors">
-                    <?php echo $name; ?>
-                </a>
-            <?php endforeach; ?>
+            <?php wp_nav_menu([
+                'theme_location' => 'primary',
+                'container' => false,
+                'menu_class' => 'flex gap-10 transition',
+            ]); ?>
             <a href="#"
-                class="bg-red-600 text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wider mt-4">Contact
+                class="bg-primary text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wider mt-4">Contact
                 Us</a>
         </div>
     </header>

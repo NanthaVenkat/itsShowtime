@@ -2,6 +2,13 @@
 
 function NKs_theme_assets()
 {
+    wp_enqueue_style(
+        'NKs-graphik-fonts',
+        get_template_directory_uri() . '/assets/fonts/graphik-trial-cufonfonts-webfont/style.css',
+        [],
+        filemtime(get_template_directory() . '/assets/fonts/graphik-trial-cufonfonts-webfont/style.css')
+    );
+
     // Swiper CSS
     wp_enqueue_style(
         'swiper-css',
@@ -13,7 +20,7 @@ function NKs_theme_assets()
     wp_enqueue_style(
         'NKs-tailwind',
         get_template_directory_uri() . '/assets/css/output.css',
-        [],
+        ['NKs-graphik-fonts'],
         filemtime(get_template_directory() . '/assets/css/output.css')
     );
 
@@ -34,9 +41,17 @@ function NKs_theme_assets()
     );
 
     wp_enqueue_script(
+        'gsap-js',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js',
+        [],
+        '3.12.5',
+        true
+    );
+
+    wp_enqueue_script(
         'NKs-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['swiper-js'], // Dependency on Swiper
+        ['swiper-js', 'gsap-js'], // Dependency on Swiper and GSAP
         filemtime(get_template_directory() . '/assets/js/main.js'),
         true
     );
