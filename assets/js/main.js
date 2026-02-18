@@ -1,4 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const resetHeroSlide = (slide) => {
+        if (!slide || typeof gsap === 'undefined') {
+            return;
+        }
+
+        const bg = slide.querySelector('.hero-slide__bg');
+        const overlay = slide.querySelector('.hero-slide__overlay');
+        const elements = slide.querySelectorAll('[data-hero-el]');
+
+        if (bg) {
+            gsap.set(bg, { scale: 1.08 });
+        }
+
+        if (overlay) {
+            gsap.set(overlay, { opacity: 0.45 });
+        }
+
+        if (elements.length) {
+            gsap.set(elements, { autoAlpha: 0, y: 36 });
+        }
+    };
+
     const runHeroAnimation = (slide) => {
         if (!slide || typeof gsap === 'undefined') {
             return;
@@ -43,9 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     };
 
+    const animateActiveHeroSlide = (swiper) => {
+        if (!swiper || !swiper.el) {
+            return;
+        }
+
+        const activeSlide = swiper.el.querySelector('.swiper-slide-active');
+        runHeroAnimation(activeSlide);
+    };
+
     // Initialize Swiper
     const swiperElement = document.querySelector('.mySwiper');
     if (swiperElement) {
+        swiperElement.querySelectorAll('.hero-slide').forEach((slide) => {
+            resetHeroSlide(slide);
+        });
+
         const swiper = new Swiper('.mySwiper', {
             init: false,
             effect: 'fade',
@@ -68,10 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             on: {
                 init() {
-                    runHeroAnimation(this.slides[this.activeIndex]);
+                    animateActiveHeroSlide(this);
                 },
-                slideChangeTransitionEnd() {
-                    runHeroAnimation(this.slides[this.activeIndex]);
+                slideChangeTransitionStart() {
+                    animateActiveHeroSlide(this);
                 }
             }
         });

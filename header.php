@@ -8,7 +8,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-black text-white antialiased font-sans'); ?>>
+<body <?php body_class('antialiased font-sans'); ?>>
     <?php wp_body_open(); ?>
 
     <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
