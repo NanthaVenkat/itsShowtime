@@ -1,0 +1,78 @@
+.mission-vision__main-image {
+    opacity: 1;
+}
+
+.mission-vision__tab-btn {
+    position: relative;
+    padding: 0 0 0.75rem;
+    color: #b4b4b4;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.mission-vision__tab-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: #dd2c1c;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+}
+
+.mission-vision__tab-btn:hover {
+    color: #dd2c1c;
+}
+
+.mission-vision__tab-btn--active {
+    color: #dd2c1c;
+}
+
+.mission-vision__tab-btn--active::after {
+    transform: scaleX(1);
+}
+
+.mission-vision__panel {
+    display: none;
+}
+
+.mission-vision__panel--active {
+    display: block;
+}
+
+.mission-vision__thumb {
+    width: 92px;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: border-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mission-vision__thumb:hover {
+    transform: translateY(-2px);
+}
+
+.mission-vision__thumb--active {
+    border-color: #dd2c1c;
+}
+
+.testimonialSwiper .swiper-slide-active {
+    border: 2px solid #FF8C8C;
+}
+
+.testimonial-pagination .swiper-pagination-bullet {
+    width: 17px;
+    height: 11px;
+    border-radius: 50px;
+    background-color: #FF8C8C;
+}
+
+.testimonial-pagination .swiper-pagination-bullet-active {
+    width: 34px;
+    background-color: #dd2c1c;
+}

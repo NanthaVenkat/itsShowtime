@@ -114,40 +114,390 @@
     </section>
 
     <!-- map section -->
-    <section class="py-12">
+    <section class="py-16">
         <div class="container mx-auto">
             <h2 class="text-primary text-4xl md:text-6xl font-medium text-center">Driving millions of impressions</h2>
             <h2 class="text-4xl md:text-6xl font-medium text-center">through immersive Experiences </h2>
 
             <p class="text-center text-lg md:text-2xl mt-7 mx-auto max-w-lg font-medium">Book your slot for the next
-                event and let
-                your brand shine in
-                front of millions nationwide.</p>
+                event and let your brand shine in front of millions nationwide.</p>
         </div>
     </section>
 
     <!-- about section -->
-    <section class="py-12 bg-primary text-white">
+    <section class="py-16 bg-primary text-white">
         <div class="container mx-auto">
-            <h2 class="border border-white rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
 
-            <div class="grid md:grid-cols-[500px_auto] mb-20">
-                <div class="mb-5 md:mb-0">
-                    <h4 class="font-semibold text-2xl md:text-4xl">It's Show Time</h4>
-                </div>
+            <div class="px-3 sm:px-5 lg:px-10">
+                <h2 class="border border-white rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
 
-                <div>
-                    <p class="font-medium text-md md:text-xl">We help brands engage audiences through immersive displays and
-                        experiential advertising solutions
-                        that create meaningful impact in real-world environments. Our approach blends creativity and
-                        technology to turn physical spaces into memorable brand experiences.</p>
+                <div class="grid md:grid-cols-[500px_auto] mb-20">
+                    <div class="mb-5 md:mb-0">
+                        <h4 class="font-semibold text-2xl md:text-4xl">It's Show Time</h4>
+                    </div>
+
+                    <div>
+                        <p class="font-medium text-md md:text-xl">We help brands engage audiences through immersive
+                            displays
+                            and experiential advertising solutions that create meaningful impact in real-world
+                            environments.
+                            Our approach blends creativity and technology to turn physical spaces into memorable brand
+                            experiences.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg" alt="" class="w-full h-[580px] object-cover object-center">
-                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-2.jpg" alt="" class="w-full h-[580px] object-cover object-center">
-                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-1.jpg" alt="" class="w-full h-[580px] object-cover object-center">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:px-5 lg:px-10">
+                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg" alt=""
+                    class="w-full h-[580px] object-cover object-center">
+                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-2.jpg" alt=""
+                    class="w-full h-[580px] object-cover object-center">
+                <img src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-1.jpg" alt=""
+                    class="w-full h-[580px] object-cover object-center">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container px-3 sm:px-5 lg:px-10 mx-auto mission-vision" id="mission-vision">
+            <div class="grid lg:grid-cols-[1fr_1fr_92px] gap-6 lg:gap-8 items-end">
+                <div class="mission-vision__media relative overflow-hidden h-[380px] md:h-[560px] lg:h-[760px]">
+                    <img id="mission-vision-main-image" class="w-full h-full object-cover mission-vision__main-image"
+                        src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
+                        alt="Mission and vision visual">
+                </div>
+
+                <div class="pb-1">
+                    <span
+                        class="inline-flex items-center rounded-full border border-gray-300 text-gray-800 px-4 py-2 text-md font-medium mb-6">
+                        Our Purpose</span>
+
+                    <div class="flex items-center gap-8 border-b border-gray-300 mb-6">
+                        <button type="button" class="mission-vision__tab-btn mission-vision__tab-btn--active"
+                            data-tab-trigger="mission">
+                            MISSION
+                        </button>
+                        <button type="button" class="mission-vision__tab-btn" data-tab-trigger="vision">
+                            VISION
+                        </button>
+                    </div>
+
+                    <div class="mission-vision__panel mission-vision__panel--active" data-tab-panel="mission">
+                        <h3 class="text-primary text-4xl md:text-6xl font-semibold mb-5">Mission</h3>
+                        <p class="text-gray-600 text-lg md:text-xl leading-10">
+                            We help brands engage audiences through immersive display experiences that turn public
+                            spaces
+                            into moments of connection. Our mission is to combine creativity, technology, and precise
+                            execution to deliver measurable impact in the real world.
+                        </p>
+                    </div>
+
+                    <div class="mission-vision__panel" data-tab-panel="vision">
+                        <h3 class="text-primary text-4xl md:text-6xl font-semibold mb-5">Vision</h3>
+                        <p class="text-gray-600 text-lg md:text-xl leading-10">
+                            Our vision is to create a world where advertising becomes a meaningful experience, not just
+                            a
+                            message. We aim to shape memorable city moments through bold storytelling, smart media
+                            placement, and interactive innovation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 md:space-y-5 mission-vision__thumb-list">
+                    <button type="button" class="mission-vision__thumb mission-vision__thumb--active"
+                        data-tab-thumb="mission" data-image-index="0" aria-label="Mission image 1">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
+                            alt="Mission thumbnail 1">
+                    </button>
+                    <button type="button" class="mission-vision__thumb" data-tab-thumb="mission" data-image-index="1"
+                        aria-label="Mission image 2">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-2.jpg"
+                            alt="Mission thumbnail 2">
+                    </button>
+                    <button type="button" class="mission-vision__thumb" data-tab-thumb="mission" data-image-index="2"
+                        aria-label="Mission image 3">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-1.jpg"
+                            alt="Mission thumbnail 3">
+                    </button>
+
+                    <button type="button" class="mission-vision__thumb hidden" data-tab-thumb="vision"
+                        data-image-index="0" aria-label="Vision image 1">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/banner3.webp"
+                            alt="Vision thumbnail 1">
+                    </button>
+                    <button type="button" class="mission-vision__thumb hidden" data-tab-thumb="vision"
+                        data-image-index="1" aria-label="Vision image 2">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/banner2-scaled.webp"
+                            alt="Vision thumbnail 2">
+                    </button>
+                    <button type="button" class="mission-vision__thumb hidden" data-tab-thumb="vision"
+                        data-image-index="2" aria-label="Vision image 3">
+                        <img class="w-full h-[110px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/banner1.webp"
+                            alt="Vision thumbnail 3">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+                <div class="px-3 sm:px-5 lg:px-0">
+                    <span class="inline-flex border border-white/80 rounded-full px-4 py-2 text-sm mb-6">Our
+                        Services</span>
+                    <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-5">Our Experiential Display Solutions
+                    </h2>
+                    <p class="text-lg leading-relaxed max-w-3xl mb-6">
+                        We design and deliver immersive display solutions that transform physical spaces into
+                        high-impact
+                        brand experiences using advanced visual and sensory technology.
+                    </p>
+                    <a href="#"
+                        class="inline-block bg-white text-primary px-5 py-3 rounded-xl font-semibold mb-8">Contact
+                        Us</a>
+
+                    <div class="grid gap-4">
+                        <div class="border border-white/90 rounded-[10px] p-6 bg-transparent">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-3">Multi-Sensory Experiences</h3>
+                            <p class="text-base leading-relaxed">Immersive experiences that combine sight, sound, touch,
+                                and environmental cues to create deeper emotional connections between brands and their
+                                audiences.</p>
+                        </div>
+                        <div class="border border-white/90 rounded-[10px] p-6 bg-transparent">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-3">Video Wall Displays</h3>
+                            <p class="text-base leading-relaxed">High-impact LED video walls that choreograph motion,
+                                color, and storytelling into cinematic brand moments built for scale, clarity, and
+                                public visibility.</p>
+                        </div>
+                        <div class="border border-white/90 rounded-[10px] p-6 bg-transparent">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-3">Naked-Eye 3D Displays</h3>
+                            <p class="text-base leading-relaxed">Displays that break the frame and bend reality,
+                                creating striking 3D visuals without glasses in high-traffic urban and event
+                                environments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative sm:px-5 lg:px-0">
+                    <div class="swiper servicesSwiper h-[460px] md:h-[620px] lg:h-full">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/banner1.webp"
+                                    alt="Experiential display service 1">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/banner2-scaled.webp"
+                                    alt="Experiential display service 2">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/banner3.webp"
+                                    alt="Experiential display service 3">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination services-swiper-pagination !bottom-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-[#fafafa]">
+        <div class="container mx-auto px-3 sm:px-5 lg:px-10">
+            <span
+                class="inline-flex border border-[#D8D8D8] text-secondary-b90 rounded-full px-4 py-2 text-sm mb-6 space-x-0 font-medium">Testimonials</span>
+            <h2 class="text-primary text-4xl md:text-6xl font-bold leading-tight mb-8">Hear it from our clients</h2>
+
+            <div class="swiper testimonialSwiper !pb-2.5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white shadow-md rounded-2xl" style="height: unset;">
+                        <article class="text-[#1a1a1a] p-5 h-full flex flex-col">
+                            <p class="m-0 text-base leading-relaxed pb-4">“Partnering with
+                                It’s Show Time helped a leading beverage brand amplify its presence through high-impact
+                                visual storytelling. Their video wall experience delivered strong visibility,
+                                engagement, and brand recall.”</p>
+                            <div class="flex items-center gap-3 pt-4 mt-auto border-t border-[#E5E5E5]">
+                                <img class="w-11 h-11 rounded-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-1.jpg"
+                                    alt="Marketing Team">
+                                <div>
+                                    <h4 class="m-0 text-base font-bold">Marketing Team</h4>
+                                    <p class="m-0 text-sm">A Leading Beverage Brand</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide bg-white shadow-md rounded-2xl" style="height: unset;">
+                        <article class="text-[#1a1a1a] p-5 h-full flex flex-col">
+                            <p class="m-0 text-base leading-relaxed pb-4">“As a renowned
+                                printing and visual solutions company, precision is non-negotiable. It’s Show Time
+                                delivered immersive displays that showcased our capabilities with clarity, scale, and
+                                sophistication.”</p>
+                            <div class="flex items-center gap-3 pt-4 mt-auto border-t border-[#E5E5E5]">
+                                <img class="w-11 h-11 rounded-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-2.jpg"
+                                    alt="Vijaykumar">
+                                <div>
+                                    <h4 class="m-0 text-base font-bold">Vijaykumar</h4>
+                                    <p class="m-0 text-sm">Founder of ABC Technologies</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide bg-white shadow-md rounded-2xl" style="height: unset;">
+                        <article class="text-[#1a1a1a] p-5 h-full flex flex-col">
+                            <p class="m-0 text-base leading-relaxed pb-4">“For a fast-growing
+                                lifestyle and apparel brand, presentation is everything. It’s Show Time brought our
+                                collections to life through dynamic visual experiences that connected instantly with our
+                                audience.”</p>
+                            <div class="flex items-center gap-3 pt-4 mt-auto border-t border-[#E5E5E5]">
+                                <img class="w-11 h-11 rounded-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
+                                    alt="Vijaykumar">
+                                <div>
+                                    <h4 class="m-0 text-base font-bold">Vijaykumar</h4>
+                                    <p class="m-0 text-sm">Founder of ABC Technologies</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide" style="height: unset;">
+                        <article class="bg-white shadow-md text-[#1a1a1a] rounded-2xl p-5 h-full flex flex-col">
+                            <p class="m-0 text-base leading-relaxed pb-4">“For a fast-growing
+                                lifestyle and apparel brand, presentation is everything. It’s Show Time brought our
+                                collections to life through dynamic visual experiences that connected instantly with our
+                                audience.”</p>
+                            <div class="flex items-center gap-3 pt-4 mt-auto border-t border-[#E5E5E5]">
+                                <img class="w-11 h-11 rounded-full object-cover"
+                                    src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
+                                    alt="Vijaykumar">
+                                <div>
+                                    <h4 class="m-0 text-base font-bold">Vijaykumar</h4>
+                                    <p class="m-0 text-sm">Founder of ABC Technologies</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="swiper-pagination testimonial-pagination !static !mt-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="py-20 bg-[#f0f0f0]">
+        <div class="container mx-auto px-3 sm:px-5 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold leading-tight text-[#111] mb-8">
+                        Everything you need to know about <span class="text-primary">our experiential advertising
+                            solutions and process.</span>
+                    </h2>
+                    <div class="grid grid-cols-3 gap-4">
+                        <img class="w-full h-[230px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-1.jpg"
+                            alt="Experiential display 1">
+                        <img class="w-full h-[230px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-2.jpg"
+                            alt="Experiential display 2">
+                        <img class="w-full h-[230px] object-cover"
+                            src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
+                            alt="Experiential display 3">
+                    </div>
+                </div>
+
+                <div class="grid gap-3" id="faq-accordion">
+                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                        <button type="button"
+                            class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
+                            data-faq-trigger>
+                            <span>What is experiential advertising?</span>
+                            <span
+                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center rotate-90 transition-transform"
+                                data-faq-icon>›</span>
+                        </button>
+                        <div class="pt-3" data-faq-content>
+                            <p class="m-0 text-[#575757] text-base leading-relaxed">Experiential advertising turns brand
+                                messages into immersive experiences people can see, feel, and engage with in real life,
+                                not just on a screen.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                        <button type="button"
+                            class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
+                            data-faq-trigger>
+                            <span>What experiences does It’s Show Time create?</span>
+                            <span
+                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon>›</span>
+                        </button>
+                        <div class="hidden pt-3" data-faq-content>
+                            <p class="m-0 text-[#575757] text-base leading-relaxed">We create high-impact solutions
+                                including interactive displays, video walls, 3D visual installations, and event-led
+                                branded environments.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                        <button type="button"
+                            class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
+                            data-faq-trigger>
+                            <span>Who is experiential advertising for?</span>
+                            <span
+                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon>›</span>
+                        </button>
+                        <div class="hidden pt-3" data-faq-content>
+                            <p class="m-0 text-[#575757] text-base leading-relaxed">It is ideal for brands that want
+                                stronger audience engagement across retail, events, launches, transport hubs, and
+                                high-footfall city spaces.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                        <button type="button"
+                            class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
+                            data-faq-trigger>
+                            <span>What is the typical project timeline?</span>
+                            <span
+                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon>›</span>
+                        </button>
+                        <div class="hidden pt-3" data-faq-content>
+                            <p class="m-0 text-[#575757] text-base leading-relaxed">Depending on scope, projects
+                                typically run between 2 to 8 weeks from concept and design through production,
+                                installation, and quality testing.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                        <button type="button"
+                            class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
+                            data-faq-trigger>
+                            <span>Do you handle both creative and execution?</span>
+                            <span
+                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon>›</span>
+                        </button>
+                        <div class="hidden pt-3" data-faq-content>
+                            <p class="m-0 text-[#575757] text-base leading-relaxed">Yes. We manage end-to-end delivery
+                                including strategy, creative, technical planning, production, on-site execution, and
+                                post-campaign support.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
