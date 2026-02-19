@@ -396,7 +396,7 @@
     </section>
 
     <!-- FAQ Accordion -->
-    <section class="py-20 bg-[#f0f0f0]">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-3 sm:px-5 lg:px-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
                 <div>
@@ -418,7 +418,7 @@
                 </div>
 
                 <div class="grid gap-3" id="faq-accordion">
-                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                    <div class="rounded-lg bg-[#F8F8F8] p-4" data-faq-item>
                         <button type="button"
                             class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
                             data-faq-trigger>
@@ -434,7 +434,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                    <div class="rounded-lg bg-[#F8F8F8] p-4" data-faq-item>
                         <button type="button"
                             class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
                             data-faq-trigger>
@@ -450,7 +450,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                    <div class="rounded-lg bg-[#F8F8F8] p-4" data-faq-item>
                         <button type="button"
                             class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
                             data-faq-trigger>
@@ -466,7 +466,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                    <div class="rounded-lg bg-[#F8F8F8] p-4" data-faq-item>
                         <button type="button"
                             class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
                             data-faq-trigger>
@@ -482,7 +482,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-lg bg-[#e9e9e9] p-4" data-faq-item>
+                    <div class="rounded-lg bg-[#F8F8F8] p-4" data-faq-item>
                         <button type="button"
                             class="w-full flex items-center justify-between gap-3 text-left text-lg font-semibold text-[#121212]"
                             data-faq-trigger>
