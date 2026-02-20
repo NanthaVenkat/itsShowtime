@@ -76,3 +76,142 @@
     width: 34px;
     background-color: #dd2c1c;
 }
+
+.about-timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.about-timeline__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.about-timeline__track::before {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 50%;
+    height: 14px;
+    background: #dd2c1c;
+    border-radius: 999px;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.about-timeline__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-timeline__dot {
+    width: 170px;
+    height: 170px;
+    border-radius: 999px;
+    background: #f3f3f3;
+    border: 12px solid #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-timeline__month {
+    color: #dd2c1c;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.about-timeline__year {
+    color: #151515;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .about-timeline__track {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .about-timeline__track::before {
+        display: none;
+    }
+
+    .about-timeline__dot {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+.services-gallery-swiper {
+    overflow: visible;
+}
+
+.services-gallery-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.services-gallery-swiper .swiper-slide {
+    width: 76%;
+    transition: width 0.45s ease;
+}
+
+.services-gallery-swiper .swiper-slide-active {
+    width: 86%;
+}
+
+.services-gallery-card {
+    height: 220px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .services-gallery-swiper .swiper-slide {
+        width: calc(28% - 14px);
+    }
+
+    .services-gallery-swiper .swiper-slide-active {
+        width: calc(72% - 14px);
+    }
+
+    .services-gallery-card {
+        height: 320px;
+    }
+}
+
+@media (min-width: 768px) {
+    .services-gallery-swiper .swiper-slide {
+        width: calc(28% - 14px);
+    }
+
+    .services-gallery-swiper .swiper-slide-active {
+        width: calc(44% - 14px);
+    }
+
+    .services-gallery-card {
+        height: 320px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-gallery-swiper .swiper-slide {
+        width: calc(20% - 16px);
+    }
+
+    .services-gallery-swiper .swiper-slide-active {
+        width: calc(40% - 16px);
+    }
+
+    .services-gallery-card {
+        height: 360px;
+    }
+}

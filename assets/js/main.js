@@ -299,6 +299,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Services Page Gallery
+    const servicesGalleryElement = document.querySelector('.services-gallery-swiper');
+    if (servicesGalleryElement) {
+        new Swiper('.services-gallery-swiper', {
+            slidesPerView: 'auto',
+            speed: 650,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true
+            },
+            slideToClickedSlide: true,
+            navigation: {
+                nextEl: '.services-gallery-next',
+                prevEl: '.services-gallery-prev'
+            },
+            breakpoints: {
+                0: {
+                    spaceBetween: 14
+                },
+                1024: {
+                    spaceBetween: 16
+                }
+            }
+        });
+    }
+
     // Testimonial Swiper
     const testimonialElement = document.querySelector('.testimonialSwiper');
     if (testimonialElement) {
@@ -358,3 +385,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
