@@ -31,14 +31,14 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
                 </a>
             </div>
 
-            <div class="grid grid-cols-[2fr_1fr] gap-3">
+            <div class="grid grid-cols-[2fr_1fr] gap-3" data-services-hero>
                 <img src="<?php echo esc_url($hero_main); ?>" alt="Service visual"
-                    class="w-full h-[360px] md:h-[520px] object-cover">
+                    class="w-full h-[360px] md:h-[520px] object-cover" data-services-hero-image>
                 <div class="grid grid-rows-2 gap-3">
                     <img src="<?php echo esc_url($hero_side_top); ?>" alt="Service visual"
-                        class="w-full h-full min-h-[170px] object-cover">
+                        class="w-full h-full min-h-[170px] object-cover" data-services-hero-image>
                     <img src="<?php echo esc_url($hero_side_bottom); ?>" alt="Service visual"
-                        class="w-full h-full min-h-[170px] object-cover">
+                        class="w-full h-full min-h-[170px] object-cover" data-services-hero-image>
                 </div>
             </div>
         </div>

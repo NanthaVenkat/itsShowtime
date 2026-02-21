@@ -1,5 +1,15 @@
 <?php get_header(); ?>
 
+<!-- Cinematic Preloader -->
+<div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+    <div class="preloader-content flex flex-col items-center">
+        <div class="preloader-line w-48 h-[2px] bg-white/20 relative overflow-hidden">
+            <div class="preloader-progress absolute inset-y-0 left-0 bg-primary w-0"></div>
+        </div>
+        <div class="preloader-text mt-4 text-white text-xs tracking-[0.3em] font-light uppercase opacity-50">Loading Experience</div>
+    </div>
+</div>
+
 <main class="w-full relative">
     <!-- Hero Slider Section -->
     <section class="relative h-screen w-full overflow-hidden">

@@ -77,77 +77,112 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
         </div>
     </section>
 
-    <section class="py-16">
+    <section class="py-16 journey-section">
         <div class="container mx-auto px-4 lg:px-10">
             <h2 class="text-primary text-5xl font-semibold text-center mb-5">Journey of It's Show Time</h2>
-            <p class="text-center text-[#4b4b4b] max-w-3xl mx-auto mb-12">
+            <p class="text-center text-[#4b4b4b] max-w-3xl mx-auto mb-16">
                 It's Show Time was born from a simple but powerful belief: advertising should not add to the noise in
                 a world already crowded with visuals.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <article>
-                    <h3 class="text-3xl font-semibold mb-3">The Beginning</h3>
-                    <p class="text-[#4d4d4d]">It started with a simple idea to create meaningful visual experiences.
-                    </p>
-                </article>
-                <article>
-                    <h3 class="text-3xl font-semibold mb-3">Expanding Beyond Borders</h3>
-                    <p class="text-[#4d4d4d]">We expanded from local work to larger campaigns across more cities.</p>
-                </article>
-                <article>
-                    <h3 class="text-3xl font-semibold mb-3">Entering Multi-Sensory Experiences</h3>
-                    <p class="text-[#4d4d4d]">We moved beyond visuals and started building full sensory brand moments.
-                    </p>
-                </article>
-            </div>
+            <div class="relative timeline-container max-w-6xl mx-auto">
+                <!-- Top Row (Content for 1, 3, 5) -->
+                <div class="hidden md:grid grid-cols-5 gap-6 mb-8 items-end min-h-[140px]">
+                    <article class="text-center px-2">
+                        <h3 class="text-2xl font-bold mb-2">The Beginning</h3>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">It started with a simple idea to create meaningful visual experiences.</p>
+                    </article>
+                    <div></div> <!-- Empty for bottom item alignment -->
+                    <article class="text-center px-2">
+                        <h3 class="text-2xl font-bold mb-2">Expanding Beyond Borders</h3>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We expanded from local work to larger campaigns across more cities.</p>
+                    </article>
+                    <div></div> <!-- Empty for bottom item alignment -->
+                    <article class="text-center px-2">
+                        <h3 class="text-2xl font-bold mb-2">Entering the World of Multi-Sensory Experiences</h3>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We moved beyond visuals and started building full sensory brand moments.</p>
+                    </article>
+                </div>
 
-            <div class="about-timeline">
-                <div class="about-timeline__track">
-                    <div class="about-timeline__item">
-                        <div class="about-timeline__dot">
-                            <span class="about-timeline__month">January</span>
-                            <span class="about-timeline__year">2024</span>
+                <!-- Middle Row (Timeline Dots) -->
+                <div class="about-timeline relative">
+                    <div class="about-timeline__track">
+                        <div class="about-timeline__item active" data-timeline-point="0">
+                            <div class="about-timeline__dot">
+                                <span class="about-timeline__month">January</span>
+                                <span class="about-timeline__year">2024</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="about-timeline__item">
-                        <div class="about-timeline__dot">
-                            <span class="about-timeline__month">April</span>
-                            <span class="about-timeline__year">2024</span>
+                        <div class="about-timeline__item" data-timeline-point="1">
+                            <div class="about-timeline__dot">
+                                <span class="about-timeline__month">April</span>
+                                <span class="about-timeline__year">2024</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="about-timeline__item">
-                        <div class="about-timeline__dot">
-                            <span class="about-timeline__month">October</span>
-                            <span class="about-timeline__year">2024</span>
+                        <div class="about-timeline__item" data-timeline-point="2">
+                            <div class="about-timeline__dot">
+                                <span class="about-timeline__month">October</span>
+                                <span class="about-timeline__year">2024</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="about-timeline__item">
-                        <div class="about-timeline__dot">
-                            <span class="about-timeline__month">March</span>
-                            <span class="about-timeline__year">2025</span>
+                        <div class="about-timeline__item" data-timeline-point="3">
+                            <div class="about-timeline__dot">
+                                <span class="about-timeline__month">March</span>
+                                <span class="about-timeline__year">2025</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="about-timeline__item">
-                        <div class="about-timeline__dot">
-                            <span class="about-timeline__month">November</span>
-                            <span class="about-timeline__year">2025</span>
+                        <div class="about-timeline__item" data-timeline-point="4">
+                            <div class="about-timeline__dot">
+                                <span class="about-timeline__month">November</span>
+                                <span class="about-timeline__year">2025</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
-                <article>
-                    <h3 class="text-4xl font-semibold mb-3">Our First Brand Collaboration</h3>
-                    <p class="text-[#4d4d4d]">Our first major campaign proved how immersive storytelling drives stronger
-                        brand recall.</p>
-                </article>
-                <article>
-                    <h3 class="text-4xl font-semibold mb-3">Evolving the Experience</h3>
-                    <p class="text-[#4d4d4d]">We refined our production and interaction systems for more impactful
-                        audience engagement.</p>
-                </article>
+                <!-- Bottom Row (Content for 2, 4) -->
+                <div class="hidden md:grid grid-cols-5 gap-6 mt-8 items-start min-h-[140px]">
+                    <div></div> <!-- Empty for top item alignment -->
+                    <article class="text-center px-2">
+                        <h3 class="text-2xl font-bold mb-2">Our First Brand Collaboration</h3>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">Our first major campaign proved how immersive storytelling drives stronger brand recall.</p>
+                    </article>
+                    <div></div> <!-- Empty for top item alignment -->
+                    <article class="text-center px-2">
+                        <h3 class="text-2xl font-bold mb-2">Evolving the Experience</h3>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We refined our production and interaction systems for more impactful audience engagement.</p>
+                    </article>
+                    <div></div> <!-- Empty for top item alignment -->
+                </div>
+
+                <!-- Mobile Only Content (Linear) -->
+                <div class="md:hidden mt-10 space-y-10">
+                    <article class="border-l-4 border-primary pl-4">
+                        <span class="text-primary font-bold text-sm">January 2024</span>
+                        <h3 class="text-2xl font-bold mb-2">The Beginning</h3>
+                        <p class="text-[#4d4d4d]">It started with a simple idea to create meaningful visual experiences.</p>
+                    </article>
+                    <article class="border-l-4 border-primary pl-4">
+                        <span class="text-primary font-bold text-sm">April 2024</span>
+                        <h3 class="text-2xl font-bold mb-2">Our First Brand Collaboration</h3>
+                        <p class="text-[#4d4d4d]">Our first major campaign proved how immersive storytelling drives stronger brand recall.</p>
+                    </article>
+                    <article class="border-l-4 border-primary pl-4">
+                        <span class="text-primary font-bold text-sm">October 2024</span>
+                        <h3 class="text-2xl font-bold mb-2">Expanding Beyond Borders</h3>
+                        <p class="text-[#4d4d4d]">We expanded from local work to larger campaigns across more cities.</p>
+                    </article>
+                    <article class="border-l-4 border-primary pl-4">
+                        <span class="text-primary font-bold text-sm">March 2025</span>
+                        <h3 class="text-2xl font-bold mb-2">Evolving the Experience</h3>
+                        <p class="text-[#4d4d4d]">We refined our production and interaction systems for more impactful audience engagement.</p>
+                    </article>
+                    <article class="border-l-4 border-primary pl-4">
+                        <span class="text-primary font-bold text-sm">November 2025</span>
+                        <h3 class="text-2xl font-bold mb-2">Entering Multi-Sensory Experiences</h3>
+                        <p class="text-[#4d4d4d]">We moved beyond visuals and started building full sensory brand moments.</p>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
@@ -159,7 +194,7 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                 <span class="block text-primary">Hear it from our clients</span>
             </h2>
 
-            <div class="swiper testimonialSwiper !pb-2.5">
+            <div class="swiper testimonialSwiper pb-2.5!">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide bg-white shadow-sm rounded-2xl border border-[#df5d5d]">
                         <article class="p-5 h-full flex flex-col">
@@ -206,7 +241,7 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                         </article>
                     </div>
                 </div>
-                <div class="swiper-pagination testimonial-pagination !static !mt-6"></div>
+                <div class="swiper-pagination testimonial-pagination static! mt-6!"></div>
             </div>
         </div>
     </section>

@@ -49,9 +49,25 @@ function NKs_theme_assets()
     );
 
     wp_enqueue_script(
+        'gsap-scrolltrigger',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',
+        ['gsap-js'],
+        '3.12.5',
+        true
+    );
+
+    wp_enqueue_script(
+        'lenis',
+        'https://unpkg.com/lenis@1.1.20/dist/lenis.min.js',
+        [],
+        '1.1.20',
+        true
+    );
+
+    wp_enqueue_script(
         'NKs-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['swiper-js', 'gsap-js'], // Dependency on Swiper and GSAP
+        ['swiper-js', 'gsap-js', 'gsap-scrolltrigger', 'lenis'], // Dependency on Swiper, GSAP and Lenis
         filemtime(get_template_directory() . '/assets/js/main.js'),
         true
     );
