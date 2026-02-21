@@ -5,131 +5,42 @@ document.addEventListener('DOMContentLoaded', function () {
     // Shared Helpers / Global Animation Utilities
     // =========================================================================
 
-    const resetHeroSlide = (slide) => {
-        if (!slide || typeof gsap === 'undefined') {
-            return;
-        }
+    const runSimplifiedHeroAnimation = (slide) => {
+        if (!slide || typeof gsap === 'undefined') return;
 
-        const bg = slide.querySelector('.hero-slide__bg');
-        const overlay = slide.querySelector('.hero-slide__overlay');
-        const elements = slide.querySelectorAll('[data-hero-el]');
+        const elements = slide.querySelectorAll('[data-hero-anim]');
+        if (!elements.length) return;
 
-        if (bg) {
-            gsap.set(bg, { scale: 1.08 });
-        }
+        // Kill existing animations on these elements
+        gsap.killTweensOf(elements);
 
-        if (overlay) {
-            gsap.set(overlay, { opacity: 0.45 });
-        }
-
-        if (elements.length) {
-            gsap.set(elements, { autoAlpha: 0, y: 36 });
-        }
-    };
-
-    const splitText = (el) => {
-        if (!el) return [];
-        const text = el.textContent.trim();
-        el.textContent = '';
-        return text.split(' ').map(word => {
-            const span = document.createElement('span');
-            span.style.display = 'inline-block';
-            span.style.overflow = 'hidden';
-            span.style.verticalAlign = 'top';
-            const inner = document.createElement('span');
-            inner.textContent = word + ' ';
-            inner.style.display = 'inline-block';
-            span.appendChild(inner);
-            el.appendChild(span);
-            return inner;
+        // Reset state
+        gsap.set(elements, {
+            autoAlpha: 0,
+            y: 40
         });
-    };
 
-    const runHeroAnimation = (slide) => {
-        if (!slide || typeof gsap === 'undefined') {
-            return;
-        }
+        // Animate in
+        gsap.to(elements, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            delay: 0.2
+        });
 
+        // Background scale effect
         const bg = slide.querySelector('.hero-slide__bg');
-        const overlay = slide.querySelector('.hero-slide__overlay');
-        const h1 = slide.querySelector('h1');
-        const p = slide.querySelector('p');
-        const buttons = slide.querySelector('div[data-hero-el]:last-child');
-
-        gsap.killTweensOf([bg, overlay, h1, p, buttons]);
-
         if (bg) {
-            gsap.fromTo(
-                bg,
+            gsap.killTweensOf(bg);
+            gsap.fromTo(bg,
                 { scale: 1.15 },
-                { scale: 1, duration: 2.5, ease: 'expo.out' }
-            );
-        }
-
-        const tl = gsap.timeline();
-
-        if (overlay) {
-            tl.fromTo(
-                overlay,
-                { opacity: 0.3 },
-                { opacity: 1, duration: 1.2, ease: 'power2.out' },
-                0
-            );
-        }
-
-        if (h1) {
-            const h1Spans = splitText(h1);
-            tl.fromTo(
-                h1Spans,
-                { yPercent: 100, autoAlpha: 0 },
-                {
-                    yPercent: 0,
-                    autoAlpha: 1,
-                    duration: 1.2,
-                    ease: 'expo.out',
-                    stagger: 0.05
-                },
-                0.2
-            );
-        }
-
-        if (p) {
-            tl.fromTo(
-                p,
-                { autoAlpha: 0, y: 30 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: 'power4.out'
-                },
-                "-=0.8"
-            );
-        }
-
-        if (buttons) {
-            tl.fromTo(
-                buttons,
-                { autoAlpha: 0, y: 20 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                },
-                "-=0.6"
+                { scale: 1, duration: 8, ease: 'linear' }
             );
         }
     };
 
-    const animateActiveHeroSlide = (swiper) => {
-        if (!swiper || !swiper.el) {
-            return;
-        }
-
-        const activeSlide = swiper.el.querySelector('.swiper-slide-active');
-        runHeroAnimation(activeSlide);
-    };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasGsap = typeof gsap !== 'undefined';
@@ -186,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const sections = gsap.utils.toArray('main section');
         sections.forEach((section, index) => {
-            if (index === 0 && section.querySelector('.mySwiper')) {
+            if (index === 0 && section.querySelector('.myHeroSwiper')) {
                 return;
             }
             if (section.querySelector('#mission-vision')) {
@@ -205,16 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (heading) {
-                const spans = splitText(heading);
                 sectionTimeline.fromTo(
-                    spans,
-                    { yPercent: 100, autoAlpha: 0 },
+                    heading,
+                    { y: 30, autoAlpha: 0 },
                     {
-                        yPercent: 0,
+                        y: 0,
                         autoAlpha: 1,
                         duration: 1,
-                        ease: 'expo.out',
-                        stagger: 0.02
+                        ease: 'expo.out'
                     }
                 );
             } else {
@@ -676,43 +585,52 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Replace the standard swiper.init() with a delayed one if preloader exists
-    const swiperElement = document.querySelector('.mySwiper');
+    const swiperElement = document.querySelector('.myHeroSwiper');
     if (swiperElement) {
-        swiperElement.querySelectorAll('.hero-slide').forEach((slide) => {
-            resetHeroSlide(slide);
+        // Pre-hide elements manually to avoid flash
+        swiperElement.querySelectorAll('[data-hero-anim]').forEach(el => {
+            gsap.set(el, { autoAlpha: 0, y: 40 });
         });
 
-        const swiper = new Swiper('.mySwiper', {
+        const swiper = new Swiper('.myHeroSwiper', {
             init: false,
             effect: 'fade',
             fadeEffect: {
                 crossFade: true
             },
-            speed: 1200, // Slightly slower for more cinematic feel
+            speed: 1500,
             loop: true,
             autoplay: {
-                delay: 5500,
+                delay: 6000,
                 disableOnInteraction: false
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+            on: {
+                init: function () {
+                    runSimplifiedHeroAnimation(this.slides[this.activeIndex]);
+                },
+                slideChangeTransitionStart: function () {
+                    runSimplifiedHeroAnimation(this.slides[this.activeIndex]);
+                }
             }
         });
 
-        // Wait for preloader to finish (approx 1.5 + 0.6 + 0.8 = 2.9s max)
-        // But we want it to start as the preloader slides up
-        window.addEventListener('load', () => {
-            initPreloader();
-            setTimeout(() => {
+        // Initialize preloader
+        initPreloader();
+
+        // Initialize swiper as preloader starts its exit
+        const initSwiperDelayed = () => {
+            if (!swiper.initialized) {
                 swiper.init();
-                animateActiveHeroSlide(swiper);
-            }, 2200);
-        });
+            }
+        };
+
+        if (document.readyState === 'complete') {
+            setTimeout(initSwiperDelayed, 1000);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(initSwiperDelayed, 1000);
+            });
+        }
     } else {
         window.addEventListener('load', initPreloader);
     }
@@ -1120,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initGlobalScrollAnimations();
 
     // Home
-    // (hero + preloader are auto-initialized above when .mySwiper exists)
+    // (hero + preloader are auto-initialized above when .myHeroSwiper exists)
 
     // About Us
     initAboutTimeline();
