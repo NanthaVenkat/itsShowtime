@@ -704,45 +704,57 @@ document.addEventListener('DOMContentLoaded', function () {
         let activeImageIndex = 0;
         let slideshowTimer = null;
 
-        const updateMainImage = (tab, index, animate = true) => {
+        const updateMainImage = (tab, index, options = {}) => {
             if (!mainImage || !tabImageMap[tab] || !tabImageMap[tab][index]) {
                 return;
             }
 
+            const animate = typeof options === 'boolean' ? options : (options.animate !== false);
+            const isScrubbing = options.scrollScrub === true;
             const nextImage = tabImageMap[tab][index];
 
             if (animate && typeof gsap !== 'undefined') {
                 gsap.killTweensOf(mainImage);
+
+                // Faster durations when scrubbing
+                const outDuration = isScrubbing ? 0.15 : 0.24;
+                const inDuration = isScrubbing ? 0.3 : 0.42;
+
                 gsap.to(mainImage, {
                     autoAlpha: 0,
                     scale: 0.985,
-                    duration: 0.24,
-                    ease: 'power2.inOut',
+                    duration: outDuration,
+                    ease: isScrubbing ? 'none' : 'power2.inOut',
                     onComplete: () => {
                         mainImage.src = nextImage.src;
                         mainImage.alt = nextImage.alt;
                         gsap.fromTo(
                             mainImage,
                             { autoAlpha: 0, scale: 1.015 },
-                            { autoAlpha: 1, scale: 1, duration: 0.42, ease: 'power2.out' }
+                            {
+                                autoAlpha: 1,
+                                scale: 1,
+                                duration: inDuration,
+                                ease: isScrubbing ? 'none' : 'power2.out'
+                            }
                         );
                     }
                 });
             } else {
                 mainImage.src = nextImage.src;
                 mainImage.alt = nextImage.alt;
+                gsap.set(mainImage, { autoAlpha: 1, scale: 1 });
             }
         };
 
         const setActiveTab = (nextTab, nextIndex = 0, options = {}) => {
             const shouldRestart = options.restart !== false;
-            const shouldAnimate = options.animate !== false;
             const indexLimit = (tabImageMap[nextTab] || []).length;
             const boundedIndex = indexLimit ? Math.max(0, Math.min(nextIndex, indexLimit - 1)) : 0;
 
             activeTab = nextTab;
             activeImageIndex = boundedIndex;
-            updateMainImage(activeTab, activeImageIndex, shouldAnimate);
+            updateMainImage(activeTab, activeImageIndex, options);
             renderActiveTab();
 
             if (shouldRestart) {
@@ -836,20 +848,21 @@ document.addEventListener('DOMContentLoaded', function () {
             ScrollTrigger.create({
                 trigger: pinTarget,
                 start: 'top top',
-                end: `+=${Math.max(1800, totalFrames * 420)}`,
+                end: `+=${Math.max(2000, totalFrames * 500)}`,
                 pin: true,
                 pinSpacing: true,
-                scrub: 0.35,
+                scrub: 1.2,
                 anticipatePin: 1,
                 onUpdate: (self) => {
                     const maxFrame = totalFrames - 1;
-                    const frame = Math.min(maxFrame, Math.floor(self.progress * totalFrames));
+                    const frame = Math.min(maxFrame, Math.floor(self.progress * (totalFrames + 0.1)));
                     const isMission = frame < missionImages.length;
                     const nextTab = isMission ? 'mission' : 'vision';
                     const nextIndex = isMission ? frame : frame - missionImages.length;
 
                     if (nextTab !== activeTab || nextIndex !== activeImageIndex) {
-                        setActiveTab(nextTab, nextIndex, { restart: false, animate: false });
+                        // Use a faster transition for scroll-scrubbed updates
+                        setActiveTab(nextTab, nextIndex, { restart: false, animate: true, scrollScrub: true });
                     }
                 }
             });
@@ -857,63 +870,6 @@ document.addEventListener('DOMContentLoaded', function () {
             restartSlideshow();
         }
     }
-
-    const initAboutTimeline = () => {
-        const journeySection = document.querySelector('.journey-section');
-        if (!journeySection) return;
-
-        const timelineItems = journeySection.querySelectorAll('.about-timeline__item');
-        const contentArticles = journeySection.querySelectorAll('.timeline-container .md\\:grid article');
-        const progressTrack = journeySection.querySelector('.about-timeline__track');
-
-        if (!timelineItems.length) return;
-
-        const updateTimeline = (index) => {
-            // Update items
-            timelineItems.forEach((item, i) => {
-                item.classList.toggle('active', i === index);
-            });
-
-            // Update content articles (desktop)
-            const visualOrderArticles = [
-                contentArticles[0], // Top 0
-                contentArticles[3], // Bottom 0
-                contentArticles[1], // Top 1
-                contentArticles[4], // Bottom 1
-                contentArticles[2]  // Top 2
-            ];
-
-            visualOrderArticles.forEach((article, i) => {
-                if (article) {
-                    article.classList.toggle('active-content', i === index);
-                }
-            });
-
-            // Update progress track width
-            if (progressTrack) {
-                const step = 100 / (timelineItems.length - 1);
-                const width = index * step;
-
-                const styleId = 'timeline-progress-style';
-                let styleEl = document.getElementById(styleId);
-                if (!styleEl) {
-                    styleEl = document.createElement('style');
-                    styleEl.id = styleId;
-                    document.head.appendChild(styleEl);
-                }
-                styleEl.textContent = `.about-timeline__track::after { width: ${width}% !important; }`;
-            }
-        };
-
-        timelineItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                updateTimeline(index);
-            });
-        });
-
-        // Initialize first point
-        updateTimeline(0);
-    };
 
     // =========================================================================
     // Services Page Scripts (Components)

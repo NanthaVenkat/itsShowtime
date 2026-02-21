@@ -36,7 +36,7 @@ $project_card_3 = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
     <section>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
             <?php foreach ($gallery_images as $index => $image): ?>
-                <figure class="overflow-hidden">
+                <figure class="overflow-hidden !mb-0">
                     <img
                         src="<?php echo esc_url($image); ?>"
                         alt="Gallery visual <?php echo esc_attr((string) ($index + 1)); ?>"

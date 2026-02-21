@@ -11,7 +11,7 @@ $direction_image = home_url('/wp-content/uploads/2026/02/banner3.webp');
 $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
 ?>
 
-<main class="about-page bg-[#f3f3f3] text-[#151515]">
+<main class="about-page bg-white text-[#151515]">
     <section class="pt-40 pb-16">
         <div class="container mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -104,39 +104,26 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                     </article>
                 </div>
 
-                <!-- Middle Row (Timeline Dots) -->
-                <div class="about-timeline relative">
-                    <div class="about-timeline__track">
-                        <div class="about-timeline__item active" data-timeline-point="0">
-                            <div class="about-timeline__dot">
-                                <span class="about-timeline__month">January</span>
-                                <span class="about-timeline__year">2024</span>
-                            </div>
-                        </div>
-                        <div class="about-timeline__item" data-timeline-point="1">
-                            <div class="about-timeline__dot">
-                                <span class="about-timeline__month">April</span>
-                                <span class="about-timeline__year">2024</span>
-                            </div>
-                        </div>
-                        <div class="about-timeline__item" data-timeline-point="2">
-                            <div class="about-timeline__dot">
-                                <span class="about-timeline__month">October</span>
-                                <span class="about-timeline__year">2024</span>
-                            </div>
-                        </div>
-                        <div class="about-timeline__item" data-timeline-point="3">
-                            <div class="about-timeline__dot">
-                                <span class="about-timeline__month">March</span>
-                                <span class="about-timeline__year">2025</span>
-                            </div>
-                        </div>
-                        <div class="about-timeline__item" data-timeline-point="4">
-                            <div class="about-timeline__dot">
-                                <span class="about-timeline__month">November</span>
-                                <span class="about-timeline__year">2025</span>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-5">
+                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                        <p class="font-medium text-2xl text-primary">January</p>
+                        <p class="font-semibold text-3xl">2024</p>
+                    </div>
+                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
+                        <p class="font-medium text-2xl text-primary">January</p>
+                        <p class="font-semibold text-3xl">2024</p>
+                    </div>
+                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                        <p class="font-medium text-2xl text-primary">January</p>
+                        <p class="font-semibold text-3xl">2024</p>
+                    </div>
+                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
+                        <p class="font-medium text-2xl text-primary">January</p>
+                        <p class="font-semibold text-3xl">2024</p>
+                    </div>
+                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                        <p class="font-medium text-2xl text-primary">January</p>
+                        <p class="font-semibold text-3xl">2024</p>
                     </div>
                 </div>
 
