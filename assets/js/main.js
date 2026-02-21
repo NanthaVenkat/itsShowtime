@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.add('loading');
+
+    // =========================================================================
+    // Shared Helpers / Global Animation Utilities
+    // =========================================================================
+
     const resetHeroSlide = (slide) => {
         if (!slide || typeof gsap === 'undefined') {
             return;
@@ -279,6 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    // =========================================================================
+    // Page Animation Helper: Services Hero Image Flip
+    // =========================================================================
     const initServicesHeroImageAnimation = () => {
         const servicesPage = document.querySelector('.services-page');
         if (!servicesPage || typeof gsap === 'undefined') {
@@ -450,6 +458,9 @@ document.addEventListener('DOMContentLoaded', function () {
         runCycle();
     };
 
+    // =========================================================================
+    // Page Animation Helper: Gallery Image Flip
+    // =========================================================================
     const initGalleryFlipAnimation = () => {
         const galleryPage = document.querySelector('.gallery-page');
         if (!galleryPage || typeof gsap === 'undefined') {
@@ -622,6 +633,10 @@ document.addEventListener('DOMContentLoaded', function () {
         runCycle();
     };
 
+    // =========================================================================
+    // Home Page Scripts
+    // =========================================================================
+
     // Preloader Animation
     const initPreloader = () => {
         const preloader = document.getElementById('preloader');
@@ -736,9 +751,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    initCustomSmoothScrolling();
-    initServicesHeroImageAnimation();
-    initGalleryFlipAnimation();
+    // =========================================================================
+    // About Us Page Scripts
+    // =========================================================================
 
     // Mission / Vision Tabs + Slideshow
     const missionVision = document.getElementById('mission-vision');
@@ -925,6 +940,67 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    const initAboutTimeline = () => {
+        const journeySection = document.querySelector('.journey-section');
+        if (!journeySection) return;
+
+        const timelineItems = journeySection.querySelectorAll('.about-timeline__item');
+        const contentArticles = journeySection.querySelectorAll('.timeline-container .md\\:grid article');
+        const progressTrack = journeySection.querySelector('.about-timeline__track');
+
+        if (!timelineItems.length) return;
+
+        const updateTimeline = (index) => {
+            // Update items
+            timelineItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+
+            // Update content articles (desktop)
+            const visualOrderArticles = [
+                contentArticles[0], // Top 0
+                contentArticles[3], // Bottom 0
+                contentArticles[1], // Top 1
+                contentArticles[4], // Bottom 1
+                contentArticles[2]  // Top 2
+            ];
+
+            visualOrderArticles.forEach((article, i) => {
+                if (article) {
+                    article.classList.toggle('active-content', i === index);
+                }
+            });
+
+            // Update progress track width
+            if (progressTrack) {
+                const step = 100 / (timelineItems.length - 1);
+                const width = index * step;
+
+                const styleId = 'timeline-progress-style';
+                let styleEl = document.getElementById(styleId);
+                if (!styleEl) {
+                    styleEl = document.createElement('style');
+                    styleEl.id = styleId;
+                    document.head.appendChild(styleEl);
+                }
+                styleEl.textContent = `.about-timeline__track::after { width: ${width}% !important; }`;
+            }
+        };
+
+        timelineItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateTimeline(index);
+            });
+        });
+
+        // Initialize first point
+        updateTimeline(0);
+    };
+
+    // =========================================================================
+    // Services Page Scripts (Components)
+    // =========================================================================
+
     // Services Showcase
     const servicesElement = document.querySelector('.servicesSwiper');
     if (servicesElement) {
@@ -1033,63 +1109,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const initAboutTimeline = () => {
-        const journeySection = document.querySelector('.journey-section');
-        if (!journeySection) return;
-
-        const timelineItems = journeySection.querySelectorAll('.about-timeline__item');
-        const contentArticles = journeySection.querySelectorAll('.timeline-container .md\\:grid article');
-        const progressTrack = journeySection.querySelector('.about-timeline__track');
-
-        if (!timelineItems.length) return;
-
-        const updateTimeline = (index) => {
-            // Update items
-            timelineItems.forEach((item, i) => {
-                item.classList.toggle('active', i === index);
-            });
-
-            // Update content articles (desktop)
-            const visualOrderArticles = [
-                contentArticles[0], // Top 0
-                contentArticles[3], // Bottom 0
-                contentArticles[1], // Top 1
-                contentArticles[4], // Bottom 1
-                contentArticles[2]  // Top 2
-            ];
-
-            visualOrderArticles.forEach((article, i) => {
-                if (article) {
-                    article.classList.toggle('active-content', i === index);
-                }
-            });
-
-            // Update progress track width
-            if (progressTrack) {
-                const step = 100 / (timelineItems.length - 1);
-                const width = index * step;
-
-                const styleId = 'timeline-progress-style';
-                let styleEl = document.getElementById(styleId);
-                if (!styleEl) {
-                    styleEl = document.createElement('style');
-                    styleEl.id = styleId;
-                    document.head.appendChild(styleEl);
-                }
-                styleEl.textContent = `.about-timeline__track::after { width: ${width}% !important; }`;
-            }
-        };
-
-        timelineItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                updateTimeline(index);
-            });
-        });
-
-        // Initialize first point
-        updateTimeline(0);
-    };
-
+    // =========================================================================
+    // Global Init Order
+    // 1) Home
+    // 2) About Us
+    // 3) Gallery
+    // 4) Services
+    // =========================================================================
+    initCustomSmoothScrolling();
     initGlobalScrollAnimations();
+
+    // Home
+    // (hero + preloader are auto-initialized above when .mySwiper exists)
+
+    // About Us
     initAboutTimeline();
+
+    // Gallery
+    initGalleryFlipAnimation();
+
+    // Services
+    initServicesHeroImageAnimation();
 });
