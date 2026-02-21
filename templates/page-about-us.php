@@ -90,38 +90,46 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                 <div class="hidden md:grid grid-cols-5 gap-6 mb-8 items-end min-h-[140px]">
                     <article class="text-center px-2">
                         <h3 class="text-2xl font-bold mb-2">The Beginning</h3>
-                        <p class="text-[#4d4d4d] text-sm leading-snug">It started with a simple idea to create meaningful visual experiences.</p>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">It started with a simple idea to create
+                            meaningful visual experiences.</p>
                     </article>
                     <div></div> <!-- Empty for bottom item alignment -->
                     <article class="text-center px-2">
                         <h3 class="text-2xl font-bold mb-2">Expanding Beyond Borders</h3>
-                        <p class="text-[#4d4d4d] text-sm leading-snug">We expanded from local work to larger campaigns across more cities.</p>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We expanded from local work to larger campaigns
+                            across more cities.</p>
                     </article>
                     <div></div> <!-- Empty for bottom item alignment -->
                     <article class="text-center px-2">
                         <h3 class="text-2xl font-bold mb-2">Entering the World of Multi-Sensory Experiences</h3>
-                        <p class="text-[#4d4d4d] text-sm leading-snug">We moved beyond visuals and started building full sensory brand moments.</p>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We moved beyond visuals and started building full
+                            sensory brand moments.</p>
                     </article>
                 </div>
 
                 <div class="grid grid-cols-5">
-                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                    <div
+                        class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
                         <p class="font-medium text-2xl text-primary">January</p>
                         <p class="font-semibold text-3xl">2024</p>
                     </div>
-                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
+                    <div
+                        class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
                         <p class="font-medium text-2xl text-primary">January</p>
                         <p class="font-semibold text-3xl">2024</p>
                     </div>
-                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                    <div
+                        class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
                         <p class="font-medium text-2xl text-primary">January</p>
                         <p class="font-semibold text-3xl">2024</p>
                     </div>
-                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
+                    <div
+                        class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary -rotate-[135deg] rounded-full flex flex-col items-center justify-center">
                         <p class="font-medium text-2xl text-primary">January</p>
                         <p class="font-semibold text-3xl">2024</p>
                     </div>
-                    <div class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
+                    <div
+                        class="w-60 h-60 mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary rotate-45 rounded-full flex flex-col items-center justify-center">
                         <p class="font-medium text-2xl text-primary">January</p>
                         <p class="font-semibold text-3xl">2024</p>
                     </div>
@@ -132,12 +140,14 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                     <div></div> <!-- Empty for top item alignment -->
                     <article class="text-center px-2">
                         <h3 class="text-2xl font-bold mb-2">Our First Brand Collaboration</h3>
-                        <p class="text-[#4d4d4d] text-sm leading-snug">Our first major campaign proved how immersive storytelling drives stronger brand recall.</p>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">Our first major campaign proved how immersive
+                            storytelling drives stronger brand recall.</p>
                     </article>
                     <div></div> <!-- Empty for top item alignment -->
                     <article class="text-center px-2">
                         <h3 class="text-2xl font-bold mb-2">Evolving the Experience</h3>
-                        <p class="text-[#4d4d4d] text-sm leading-snug">We refined our production and interaction systems for more impactful audience engagement.</p>
+                        <p class="text-[#4d4d4d] text-sm leading-snug">We refined our production and interaction systems
+                            for more impactful audience engagement.</p>
                     </article>
                     <div></div> <!-- Empty for top item alignment -->
                 </div>
@@ -147,91 +157,40 @@ $avatar_image = home_url('/wp-content/uploads/2026/02/about-banner-1.jpg');
                     <article class="border-l-4 border-primary pl-4">
                         <span class="text-primary font-bold text-sm">January 2024</span>
                         <h3 class="text-2xl font-bold mb-2">The Beginning</h3>
-                        <p class="text-[#4d4d4d]">It started with a simple idea to create meaningful visual experiences.</p>
+                        <p class="text-[#4d4d4d]">It started with a simple idea to create meaningful visual experiences.
+                        </p>
                     </article>
                     <article class="border-l-4 border-primary pl-4">
                         <span class="text-primary font-bold text-sm">April 2024</span>
                         <h3 class="text-2xl font-bold mb-2">Our First Brand Collaboration</h3>
-                        <p class="text-[#4d4d4d]">Our first major campaign proved how immersive storytelling drives stronger brand recall.</p>
+                        <p class="text-[#4d4d4d]">Our first major campaign proved how immersive storytelling drives
+                            stronger brand recall.</p>
                     </article>
                     <article class="border-l-4 border-primary pl-4">
                         <span class="text-primary font-bold text-sm">October 2024</span>
                         <h3 class="text-2xl font-bold mb-2">Expanding Beyond Borders</h3>
-                        <p class="text-[#4d4d4d]">We expanded from local work to larger campaigns across more cities.</p>
+                        <p class="text-[#4d4d4d]">We expanded from local work to larger campaigns across more cities.
+                        </p>
                     </article>
                     <article class="border-l-4 border-primary pl-4">
                         <span class="text-primary font-bold text-sm">March 2025</span>
                         <h3 class="text-2xl font-bold mb-2">Evolving the Experience</h3>
-                        <p class="text-[#4d4d4d]">We refined our production and interaction systems for more impactful audience engagement.</p>
+                        <p class="text-[#4d4d4d]">We refined our production and interaction systems for more impactful
+                            audience engagement.</p>
                     </article>
                     <article class="border-l-4 border-primary pl-4">
                         <span class="text-primary font-bold text-sm">November 2025</span>
                         <h3 class="text-2xl font-bold mb-2">Entering Multi-Sensory Experiences</h3>
-                        <p class="text-[#4d4d4d]">We moved beyond visuals and started building full sensory brand moments.</p>
+                        <p class="text-[#4d4d4d]">We moved beyond visuals and started building full sensory brand
+                            moments.</p>
                     </article>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-[#ececec]">
-        <div class="container mx-auto px-4 lg:px-10">
-            <h2 class="text-5xl md:text-6xl leading-tight font-semibold mb-10">
-                Don't take our word for it!
-                <span class="block text-primary">Hear it from our clients</span>
-            </h2>
-
-            <div class="swiper testimonialSwiper pb-2.5!">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-white shadow-sm rounded-2xl border border-[#df5d5d]">
-                        <article class="p-5 h-full flex flex-col">
-                            <p class="text-base leading-relaxed mb-6">Partnering with It's Show Time helped us amplify
-                                our brand presence through high-impact visual storytelling.</p>
-                            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#ececec]">
-                                <img class="w-12 h-12 rounded-full object-cover" src="<?php echo esc_url($avatar_image); ?>"
-                                    alt="Client avatar">
-                                <div>
-                                    <h4 class="text-sm font-bold uppercase">Vijaykumar</h4>
-                                    <p class="text-xs text-[#555]">Founder of Abc Technologies</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="swiper-slide bg-white shadow-sm rounded-2xl border border-[#ececec]">
-                        <article class="p-5 h-full flex flex-col">
-                            <p class="text-base leading-relaxed mb-6">As a solutions company, precision matters.
-                                It's Show Time delivered immersive displays with clarity and sophistication.</p>
-                            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#ececec]">
-                                <img class="w-12 h-12 rounded-full object-cover" src="<?php echo esc_url($avatar_image); ?>"
-                                    alt="Client avatar">
-                                <div>
-                                    <h4 class="text-sm font-bold uppercase">Vijaykumar</h4>
-                                    <p class="text-xs text-[#555]">Founder of Abc Technologies</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="swiper-slide bg-white shadow-sm rounded-2xl border border-[#ececec]">
-                        <article class="p-5 h-full flex flex-col">
-                            <p class="text-base leading-relaxed mb-6">Their team brought our collections to life with
-                                dynamic experiences that connected instantly with our audience.</p>
-                            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#ececec]">
-                                <img class="w-12 h-12 rounded-full object-cover" src="<?php echo esc_url($avatar_image); ?>"
-                                    alt="Client avatar">
-                                <div>
-                                    <h4 class="text-sm font-bold uppercase">Vijaykumar</h4>
-                                    <p class="text-xs text-[#555]">Founder of Abc Technologies</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="swiper-pagination testimonial-pagination static! mt-6!"></div>
-            </div>
-        </div>
-    </section>
+    <!-- Testimonials -->
+    <?php include 'testimonial.php' ?>
 </main>
 
 <?php get_footer(); ?>
