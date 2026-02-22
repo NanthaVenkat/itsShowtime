@@ -23,11 +23,11 @@
             </div>
 
             <!-- Desktop Menu -->
-            <nav class="hidden md:flex items-center space-x-10">
+            <nav class="hidden md:flex items-center space-x-10 nks-nav nks-nav--desktop">
                 <?php wp_nav_menu([
                     'theme_location' => 'primary',
                     'container' => false,
-                    'menu_class' => 'flex gap-10 transition',
+                    'menu_class' => 'nks-nav__list flex gap-10 transition',
                 ]); ?>
             </nav>
 
@@ -55,7 +55,7 @@
             <?php wp_nav_menu([
                 'theme_location' => 'primary',
                 'container' => false,
-                'menu_class' => 'flex gap-10 transition',
+                'menu_class' => 'nks-nav__list nks-nav__list--mobile flex gap-10 transition',
             ]); ?>
             <a href="#"
                 class="bg-primary text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wider mt-4">Contact
