@@ -670,6 +670,84 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =========================================================================
+    // Blog Page Scripts
+    // =========================================================================
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const blogGrid = document.getElementById('blog-grid');
+    const trendingGrid = document.getElementById('trending-grid');
+    const recentGrid = document.getElementById('recent-grid');
+
+    if (loadMoreBtn && (blogGrid || (trendingGrid && recentGrid))) {
+        loadMoreBtn.addEventListener('click', function () {
+            const page = parseInt(loadMoreBtn.getAttribute('data-page'));
+            const postId = loadMoreBtn.getAttribute('data-post-id') || 0;
+            const buttonText = loadMoreBtn.innerText;
+
+            loadMoreBtn.innerText = 'Loading...';
+            loadMoreBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('action', 'load_more_posts');
+            formData.append('page', page);
+            if (postId) {
+                formData.append('current_post_id', postId);
+            }
+
+            fetch(nks_ajax.ajax_url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    const contentType = response.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                        return response.json();
+                    } else {
+                        return response.text();
+                    }
+                })
+                .then(data => {
+                    let hasData = false;
+
+                    // Handle JSON response (Single Page Dual Column)
+                    if (typeof data === 'object') {
+                        if (data.trending && data.trending.trim().length > 0) {
+                            trendingGrid.insertAdjacentHTML('beforeend', data.trending);
+                            hasData = true;
+                        }
+                        if (data.recent && data.recent.trim().length > 0) {
+                            recentGrid.insertAdjacentHTML('beforeend', data.recent);
+                            hasData = true;
+                        }
+                    }
+                    // Handle String response (Blog List Page)
+                    else if (typeof data === 'string' && data.trim().length > 0) {
+                        blogGrid.insertAdjacentHTML('beforeend', data);
+                        hasData = true;
+                    }
+
+                    if (hasData) {
+                        loadMoreBtn.setAttribute('data-page', page + 1);
+                        loadMoreBtn.innerText = buttonText;
+                        loadMoreBtn.disabled = false;
+
+                        // Trigger scroll animation for new items
+                        if (typeof ScrollTrigger !== 'undefined') {
+                            ScrollTrigger.refresh();
+                        }
+                    } else {
+                        loadMoreBtn.innerText = 'No More Posts';
+                        loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading more posts:', error);
+                    loadMoreBtn.innerText = buttonText;
+                    loadMoreBtn.disabled = false;
+                });
+        });
+    }
+
+    // =========================================================================
     // About Us Page Scripts
     // =========================================================================
 
@@ -996,12 +1074,130 @@ document.addEventListener('DOMContentLoaded', function () {
     // Home
     // (hero + preloader are auto-initialized above when .myHeroSwiper exists)
 
-    // About Us
-    initAboutTimeline();
-
     // Gallery
     initGalleryFlipAnimation();
 
     // Services
     initServicesHeroImageAnimation();
+
+    // =========================================================================
+    // India Map Chart (ZingChart)
+    // =========================================================================
+    function initIndiaMapChart() {
+        const chartId = 'india-map-chart';
+        const chartElement = document.getElementById(chartId);
+        if (!chartElement) return;
+        if (typeof zingchart === 'undefined') return;
+
+        const detailBox = document.getElementById('state-detail-box');
+        const stateNameEl = document.getElementById('detail-state-name');
+        const stateDescEl = document.getElementById('detail-state-desc');
+        const stateValueEl = document.getElementById('detail-state-value');
+
+        // State Data Mapping
+        const stateData = {
+            'TN': { name: 'Tamil Nadu', value: '1200+', desc: 'Book your slot for the next event and let your brand shine in front of millions in Tamil Nadu.' },
+            'MH': { name: 'Maharashtra', value: '1500+', desc: 'Driving millions of impressions through immersive experiences in the heart of Maharashtra.' },
+            'KA': { name: 'Karnataka', value: '950+', desc: 'Connecting brands with high-intent audiences across Karnataka\'s tech hubs.' },
+            'DL': { name: 'Delhi', value: '1800+', desc: 'Unmatched brand visibility in the capital region with our premium 3D LED displays.' },
+            'WB': { name: 'West Bengal', value: '800+', desc: 'Captivating audiences in West Bengal with high-impact cinematic advertising.' },
+            'GJ': { name: 'Gujarat', value: '1100+', desc: 'Expanding brand reach across industrial and cultural centers of Gujarat.' },
+            'TG': { name: 'Telangana', value: '900+', desc: 'Innovating brand storytelling in the vibrant markets of Telangana.' },
+            'AP': { name: 'Andhra Pradesh', value: '750+', desc: 'Delivering immersive brand experiences across Andhra Pradesh.' },
+            'UP': { name: 'Uttar Pradesh', value: '1400+', desc: 'Reaching millions in India\'s most populous state with scale and precision.' }
+        };
+
+        const chartConfig = {
+            shapes: [
+                {
+                    type: 'zingchart.maps',
+                    options: {
+                        name: 'ind',
+                        panning: false,
+                        zooming: false,
+                        scrolling: false,
+                        style: {
+                            controls: { visible: false },
+                            backgroundColor: 'transparent',
+                            borderColor: '#E13C2B',
+                            borderWidth: '0.5px',
+                            item: {
+                                backgroundColor: '#FFF0F0',
+                                cursor: 'pointer'
+                            },
+                            hoverState: {
+                                backgroundColor: '#E13C2B',
+                                transition: 'all 0.2s ease-in-out'
+                            },
+                            tooltip: {
+                                visible: false // We use our custom detail box
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+
+        zingchart.render({
+            id: chartId,
+            data: chartConfig,
+            height: '100%',
+            width: '100%'
+        });
+
+        // Event Handling for custom detail box
+        zingchart.bind(chartId, 'shape_mouseover', (e) => {
+            const stateCode = e.shapeid; // e.g., 'TN'
+            const data = stateData[stateCode] || { name: stateCode, value: 'Coming Soon', desc: 'We are expanding our presence here. Stay tuned for more updates!' };
+
+            if (detailBox && typeof gsap !== 'undefined') {
+                stateNameEl.textContent = data.name;
+                stateDescEl.textContent = data.desc;
+                stateValueEl.textContent = data.value;
+
+                // Move detail box near mouse (offset for better visibility)
+                const x = e.ev.clientX;
+                const y = e.ev.clientY;
+
+                // Keep box visible inside container
+                const rect = chartElement.getBoundingClientRect();
+                const offsetX = x - rect.left + 20;
+                const offsetY = y - rect.top - 100;
+
+                gsap.to(detailBox, {
+                    left: offsetX,
+                    top: offsetY,
+                    autoAlpha: 1,
+                    scale: 1,
+                    duration: 0.4,
+                    ease: 'back.out(1.7)'
+                });
+            }
+        });
+
+        zingchart.bind(chartId, 'shape_mouseout', () => {
+            if (detailBox && typeof gsap !== 'undefined') {
+                gsap.to(detailBox, {
+                    autoAlpha: 0,
+                    scale: 0.9,
+                    duration: 0.3
+                });
+            }
+        });
+
+        // Keep detail box following mouse while inside a state
+        zingchart.bind(chartId, 'shape_mousemove', (e) => {
+            if (detailBox && typeof gsap !== 'undefined' && detailBox.style.opacity > 0) {
+                const rect = chartElement.getBoundingClientRect();
+                gsap.to(detailBox, {
+                    left: e.ev.clientX - rect.left + 20,
+                    top: e.ev.clientY - rect.top - 100,
+                    duration: 0.1,
+                    overwrite: 'auto'
+                });
+            }
+        });
+    }
+
+    initIndiaMapChart();
 });

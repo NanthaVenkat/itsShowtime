@@ -31,6 +31,13 @@ function NKs_theme_assets()
         filemtime(get_template_directory() . '/assets/css/style.css')
     );
 
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
+        [],
+        '6.5.2'
+    );
+
     // Swiper JS
     wp_enqueue_script(
         'swiper-js',
@@ -64,12 +71,47 @@ function NKs_theme_assets()
         true
     );
 
+    $main_script_deps = ['swiper-js', 'gsap-js', 'gsap-scrolltrigger', 'lenis'];
+
+    // ZingChart map dependencies (front page only)
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'zingchart-core',
+            'https://cdn.zingchart.com/zingchart.min.js',
+            [],
+            null,
+            true
+        );
+
+        wp_enqueue_script(
+            'zingchart-maps',
+            'https://cdn.zingchart.com/modules/zingchart-maps.min.js',
+            ['zingchart-core'],
+            null,
+            true
+        );
+
+        wp_enqueue_script(
+            'zingchart-maps-ind',
+            'https://cdn.zingchart.com/modules/zingchart-maps-ind.min.js',
+            ['zingchart-maps'],
+            null,
+            true
+        );
+
+        $main_script_deps[] = 'zingchart-maps-ind';
+    }
+
     wp_enqueue_script(
         'NKs-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['swiper-js', 'gsap-js', 'gsap-scrolltrigger', 'lenis'], // Dependency on Swiper, GSAP and Lenis
+        $main_script_deps, // Dependency on Swiper, GSAP, Lenis, and optionally ZingChart for the front page
         filemtime(get_template_directory() . '/assets/js/main.js'),
         true
     );
+
+    wp_localize_script('NKs-main', 'nks_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ]);
 }
 add_action('wp_enqueue_scripts', 'NKs_theme_assets');

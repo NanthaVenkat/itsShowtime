@@ -20,7 +20,7 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
         <div class="container mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
                 <h1 class="text-primary text-5xl md:text-6xl font-semibold mb-5">Our Services</h1>
-                <p class="text-[#4a4a4a] text-lg max-w-xl mb-7 leading-relaxed">
+                <p class="text-[#565656] text-lg max-w-xl mb-7 leading-relaxed">
                     Our services help brands move beyond static advertising to create immersive, attention-grabbing
                     experiences in real-world environments. Using advanced display and sensory technologies, we design
                     and deliver experiences audiences truly engage with.
@@ -47,7 +47,7 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
     <section id="services-list" class="py-16">
         <div class="container mx-auto px-4 lg:px-10">
             <span class="inline-flex border border-[#c8c8c8] rounded-full px-4 py-2 text-sm mb-6">Our Services</span>
-            <h2 class="text-4xl md:text-6xl leading-tight font-semibold mb-12">
+            <h2 class="text-4xl md:text-6xl leading-tight font-semibold mb-12 max-w-6xl">
                 Precision Branding,
                 <span class="text-primary">Built for Real-World Use Experience</span>
             </h2>
@@ -57,8 +57,8 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
                     class="w-full h-[320px] md:h-[420px] object-cover">
                 <article>
                     <h3 class="text-primary text-6xl font-semibold mb-4">01</h3>
-                    <h4 class="text-3xl font-semibold mb-4">Multi sensory advertisements</h4>
-                    <p class="text-[#434343] text-lg leading-relaxed mb-6">
+                    <h4 class="text-2xl font-semibold mb-4 text-[#252525]">Multi sensory advertisements</h4>
+                    <p class="text-[#565656] text-lg leading-relaxed mb-6">
                         Our multi-sensory advertising experiences combine visuals with sound, lighting, motion, and
                         environmental cues to create deeper emotional engagement. By activating more than one sense, we
                         help brands connect with audiences on a level that goes beyond visual impact alone.
@@ -71,8 +71,8 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-10">
                 <article class="order-2 lg:order-1">
                     <h3 class="text-primary text-6xl font-semibold mb-4">02</h3>
-                    <h4 class="text-3xl font-semibold mb-4">Naked Eye 3D Displays</h4>
-                    <p class="text-[#434343] text-lg leading-relaxed mb-6">
+                    <h4 class="text-2xl font-semibold mb-4 text-[#252525]">Naked Eye 3D Displays</h4>
+                    <p class="text-[#565656] text-lg leading-relaxed mb-6">
                         Our naked-eye 3D displays create striking depth and motion without the need for glasses,
                         producing visuals that appear to break out of the screen. Designed for high-footfall
                         environments, these displays turn brand content into attention-grabbing visual moments people
@@ -90,8 +90,8 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
                     class="w-full h-[320px] md:h-[420px] object-cover">
                 <article>
                     <h3 class="text-primary text-6xl font-semibold mb-4">03</h3>
-                    <h4 class="text-3xl font-semibold mb-4">Video Wall Displays</h4>
-                    <p class="text-[#434343] text-lg leading-relaxed mb-6">
+                    <h4 class="text-2xl font-semibold mb-4 text-[#252525]">Video Wall Displays</h4>
+                    <p class="text-[#565656] text-lg leading-relaxed mb-6">
                         Our video wall display solutions combine scale, clarity, and motion to build immersive brand
                         storytelling environments. They are ideal for retail spaces, events, and corporate experience
                         zones where consistent visual impact and strong recall matter.
@@ -118,12 +118,12 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
                 </div>
                 <div class="hidden md:flex items-center gap-2">
                     <button type="button"
-                        class="services-gallery-prev w-11 h-11 rounded-lg border border-[#e2b1ab] text-primary text-xl leading-none">
-                        &larr;
+                        class="services-gallery-prev w-11 h-11 rounded-lg border border-[#C5C5C5] text-primary text-xl leading-none">
+                        <i class="fas fa-arrow-left"></i>
                     </button>
                     <button type="button"
-                        class="services-gallery-next w-11 h-11 rounded-lg border border-[#e2b1ab] text-primary text-xl leading-none">
-                        &rarr;
+                        class="services-gallery-next w-11 h-11 rounded-lg border border-[#C5C5C5] text-primary text-xl leading-none">
+                        <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -147,37 +147,6 @@ $service_3 = home_url('/wp-content/uploads/2026/02/about-banner-3.jpg');
                                 alt="Gallery image 4" class="w-full h-full object-cover"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16">
-        <div class="container mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10">
-            <div>
-                <h3 class="text-primary text-5xl font-semibold mb-3">Let's Talk</h3>
-                <p class="text-[#4f4f4f] max-w-sm">Drop your details and project brief. We'll help evaluate the right
-                    technical direction and execution plan.</p>
-            </div>
-
-            <div>
-                <h4 class="text-3xl font-semibold mb-5">How can we help you?</h4>
-                
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" placeholder="First Name"
-                        class="h-12 rounded border border-[#d8d8d8] px-4 bg-white focus:outline-none focus:border-primary">
-                    <input type="text" placeholder="Last Name"
-                        class="h-12 rounded border border-[#d8d8d8] px-4 bg-white focus:outline-none focus:border-primary">
-                    <input type="email" placeholder="Email"
-                        class="h-12 rounded border border-[#d8d8d8] px-4 bg-white focus:outline-none focus:border-primary">
-                    <input type="tel" placeholder="Mobile Number"
-                        class="h-12 rounded border border-[#d8d8d8] px-4 bg-white focus:outline-none focus:border-primary">
-                    <textarea rows="5" placeholder="Message"
-                        class="md:col-span-2 rounded border border-[#d8d8d8] p-4 bg-white focus:outline-none focus:border-primary"></textarea>
-                    <button type="submit"
-                        class="md:col-span-2 h-12 rounded-lg bg-primary text-white font-medium hover:bg-red-700 transition-colors">
-                        Contact Us For Experience Branding
-                    </button>
-                </form>
             </div>
         </div>
     </section>

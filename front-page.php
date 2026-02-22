@@ -31,20 +31,20 @@
                     <!-- Content -->
                     <div class="relative h-full w-full flex items-end justify-start z-20 container mx-auto">
                         <div class="max-w-3xl px-6 py-8 lg:px-16 lg:py-18 mb-6">
-                            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-4xl"
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-6 max-w-4xl"
                                 data-hero-anim>
                                 Immersive Display Experiences That Transform Brands Into Moments
                             </h1>
-                            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-8" data-hero-anim>
+                            <p class="text-gray-300 text-md sm:text-xl max-w-2xl mb-8" data-hero-anim>
                                 Using advanced display technology, we help brands create immersive moments that capture
                                 attention, spark emotion, and stay memorable.
                             </p>
                             <div class="flex flex-wrap gap-4" data-hero-anim>
                                 <a href="#"
-                                    class="inline-block rounded-lg bg-white border border-primary text-primary hover:text-white hover:bg-primary p-3 font-medium transition-all">Explore
+                                    class="inline-block rounded-lg bg-white border border-primary text-primary hover:text-white hover:bg-primary p-2 font-medium transition-all text-sm sm:text-md">Explore
                                     Services</a>
                                 <a href="#"
-                                    class="inline-block rounded-lg bg-primary text-white border-primary hover:bg-white hover:text-primary p-3 font-medium transition-all">Contact
+                                    class="inline-block rounded-lg bg-primary text-white border-primary hover:bg-white hover:text-primary p-2 font-medium transition-all text-sm sm:text-md">Contact
                                     Us</a>
                             </div>
                         </div>
@@ -66,20 +66,20 @@
                     <!-- Content -->
                     <div class="relative h-full w-full flex items-end justify-start z-20 container mx-auto">
                         <div class="max-w-3xl px-6 py-8 lg:px-16 lg:py-18 mb-6">
-                            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-4xl"
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-6 max-w-4xl"
                                 data-hero-anim>
                                 Immersive Display Experiences That Transform Brands Into Moments
                             </h1>
-                            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-8" data-hero-anim>
+                            <p class="text-gray-300 text-md sm:text-xl max-w-2xl mb-8" data-hero-anim>
                                 Using advanced display technology, we help brands create immersive moments that capture
                                 attention, spark emotion, and stay memorable.
                             </p>
                             <div class="flex flex-wrap gap-4" data-hero-anim>
                                 <a href="#"
-                                    class="inline-block rounded-lg bg-white border border-primary text-primary hover:text-white hover:bg-primary p-3 font-medium transition-all">Explore
+                                    class="inline-block rounded-lg bg-white border border-primary text-primary hover:text-white hover:bg-primary p-2 font-medium transition-all text-sm sm:text-md">Explore
                                     Services</a>
                                 <a href="#"
-                                    class="inline-block rounded-lg bg-primary text-white border-primary hover:bg-white hover:text-primary p-3 font-medium transition-all">Contact
+                                    class="inline-block rounded-lg bg-primary text-white border-primary hover:bg-white hover:text-primary p-2 font-medium transition-all text-sm sm:text-md">Contact
                                     Us</a>
                             </div>
                         </div>
@@ -103,11 +103,11 @@
                         <div class="max-w-3xl px-6 py-8 lg:px-16 lg:py-18 mb-6">
                             <span class="inline-block bg-primary text-white text-md px-3.5 py-1 rounded-lg mb-2.5"
                                 data-hero-anim>Trending</span>
-                            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-4xl"
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-6 max-w-4xl"
                                 data-hero-anim>
                                 Precision Branding, Built for Real-World Use Experience
                             </h1>
-                            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-8" data-hero-anim>
+                            <p class="text-gray-300 text-md sm:text-xl max-w-2xl mb-8" data-hero-anim>
                                 Naked eye advertising refers to outdoor 3D LED displays that create the illusion of
                                 three-dimensional Naked eye advertising refers to outdoor 3D LED displays that create
                                 the illusion of three-dimensional
@@ -127,13 +127,27 @@
     </section>
 
     <!-- map section -->
-    <section class="py-16">
+    <section class="py-16 bg-white overflow-hidden">
         <div class="container mx-auto">
             <h2 class="text-primary text-4xl md:text-6xl font-medium text-center">Driving millions of impressions</h2>
             <h2 class="text-4xl md:text-6xl font-medium text-center">through immersive Experiences </h2>
 
-            <p class="text-center text-lg md:text-2xl mt-7 mx-auto max-w-lg font-medium">Book your slot for the next
+            <p class="text-center text-lg md:text-2xl mt-7 mx-auto max-w-lg font-medium mb-12">Book your slot for the
+                next
                 event and let your brand shine in front of millions nationwide.</p>
+
+            <div class="relative max-w-5xl mx-auto">
+                <div id="india-map-chart" class="w-full h-[600px] md:h-[800px]"></div>
+
+                <!-- Custom state Detail box (Figma Style) -->
+                <div id="state-detail-box"
+                    class="absolute pointer-events-none opacity-0 z-50 bg-[#FDF8F8] border border-primary/30 p-6 rounded-2xl shadow-xl transition-all duration-300 min-w-[300px]">
+                    <h3 id="detail-state-name" class="text-primary text-3xl font-bold mb-3">State Name</h3>
+                    <p id="detail-state-desc" class="text-gray-700 text-sm mb-4 leading-relaxed">Book your slot for the
+                        next event and let your brand shine in front of millions nationwide.</p>
+                    <p id="detail-state-value" class="text-primary text-4xl font-bold">1000+</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -171,10 +185,11 @@
         </div>
     </section>
 
+    <!-- Mission Vission -->
     <section class="py-16">
         <div class="container px-3 sm:px-5 lg:px-10 mx-auto mission-vision" id="mission-vision">
             <div class="grid lg:grid-cols-[1fr_1fr_92px] gap-6 lg:gap-8 items-end">
-                <div class="mission-vision__media relative overflow-hidden h-[380px] md:h-[560px] lg:h-[760px]">
+                <div class="mission-vision__media relative overflow-hidden h-[380px] md:h-[560px] lg:h-screen">
                     <img id="mission-vision-main-image" class="w-full h-full object-cover mission-vision__main-image"
                         src="http://localhost/showtime/wp-content/uploads/2026/02/about-banner-3.jpg"
                         alt="Mission and vision visual">
@@ -198,20 +213,18 @@
                     <div class="mission-vision__panel mission-vision__panel--active" data-tab-panel="mission">
                         <h3 class="text-primary text-4xl md:text-6xl font-semibold mb-5">Mission</h3>
                         <p class="text-gray-600 text-lg md:text-xl leading-10">
-                            We help brands engage audiences through immersive display experiences that turn public
-                            spaces
-                            into moments of connection. Our mission is to combine creativity, technology, and precise
-                            execution to deliver measurable impact in the real world.
+                            Our vision is to create a world where advertising becomes an experience rather than just
+                            something people watch. We believe in meaningful, immersive interactions that connect brands
+                            with audiences in real, memorable ways.
                         </p>
                     </div>
 
                     <div class="mission-vision__panel" data-tab-panel="vision">
                         <h3 class="text-primary text-4xl md:text-6xl font-semibold mb-5">Vision</h3>
                         <p class="text-gray-600 text-lg md:text-xl leading-10">
-                            Our vision is to create a world where advertising becomes a meaningful experience, not just
-                            a
-                            message. We aim to shape memorable city moments through bold storytelling, smart media
-                            placement, and interactive innovation.
+                            Our vision is to create a world where advertising becomes an experience rather than just
+                            something people watch. We believe in meaningful, immersive interactions that connect brands
+                            with audiences in real, memorable ways.
                         </p>
                     </div>
                 </div>
@@ -333,7 +346,7 @@
         <div class="container mx-auto px-3 sm:px-5 lg:px-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
                 <div>
-                    <h2 class="text-4xl md:text-6xl font-bold leading-tight text-[#111] mb-8">
+                    <h2 class="text-4xl font-bold leading-tight text-[#111] mb-8">
                         Everything you need to know about <span class="text-primary">our experiential advertising
                             solutions and process.</span>
                     </h2>
@@ -357,8 +370,10 @@
                             data-faq-trigger>
                             <span>What is experiential advertising?</span>
                             <span
-                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center rotate-90 transition-transform"
-                                data-faq-icon>›</span>
+                                class="w-7 h-7 rounded-md text-sm bg-primary text-white inline-flex items-center justify-center transition-transform rotate-90"
+                                data-faq-icon aria-hidden="true">
+                                <i class="fa-solid fa-chevron-right" data-faq-icon aria-hidden="true"></i>
+                            </span>
                         </button>
                         <div class="pt-3" data-faq-content>
                             <p class="m-0 text-[#575757] text-base leading-relaxed">Experiential advertising turns brand
@@ -373,8 +388,10 @@
                             data-faq-trigger>
                             <span>What experiences does It’s Show Time create?</span>
                             <span
-                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
-                                data-faq-icon>›</span>
+                                class="w-7 h-7 rounded-md text-sm bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon aria-hidden="true">
+                                <i class="fa-solid fa-chevron-right" data-faq-icon aria-hidden="true"></i>
+                            </span>
                         </button>
                         <div class="hidden pt-3" data-faq-content>
                             <p class="m-0 text-[#575757] text-base leading-relaxed">We create high-impact solutions
@@ -389,8 +406,10 @@
                             data-faq-trigger>
                             <span>Who is experiential advertising for?</span>
                             <span
-                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
-                                data-faq-icon>›</span>
+                                class="w-7 h-7 rounded-md text-sm bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon aria-hidden="true">
+                                <i class="fa-solid fa-chevron-right" data-faq-icon aria-hidden="true"></i>
+                            </span>
                         </button>
                         <div class="hidden pt-3" data-faq-content>
                             <p class="m-0 text-[#575757] text-base leading-relaxed">It is ideal for brands that want
@@ -405,8 +424,10 @@
                             data-faq-trigger>
                             <span>What is the typical project timeline?</span>
                             <span
-                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
-                                data-faq-icon>›</span>
+                                class="w-7 h-7 rounded-md text-sm bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon aria-hidden="true">
+                                <i class="fa-solid fa-chevron-right" data-faq-icon aria-hidden="true"></i>
+                            </span>
                         </button>
                         <div class="hidden pt-3" data-faq-content>
                             <p class="m-0 text-[#575757] text-base leading-relaxed">Depending on scope, projects
@@ -421,8 +442,10 @@
                             data-faq-trigger>
                             <span>Do you handle both creative and execution?</span>
                             <span
-                                class="w-7 h-7 rounded-md bg-primary text-white inline-flex items-center justify-center transition-transform"
-                                data-faq-icon>›</span>
+                                class="w-7 h-7 rounded-md text-sm bg-primary text-white inline-flex items-center justify-center transition-transform"
+                                data-faq-icon aria-hidden="true">
+                                <i class="fa-solid fa-chevron-right" data-faq-icon aria-hidden="true"></i>
+                            </span>
                         </button>
                         <div class="hidden pt-3" data-faq-content>
                             <p class="m-0 text-[#575757] text-base leading-relaxed">Yes. We manage end-to-end delivery

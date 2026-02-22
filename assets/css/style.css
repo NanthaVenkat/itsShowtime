@@ -77,145 +77,6 @@
     background-color: #dd2c1c;
 }
 
-.about-timeline {
-    position: relative;
-    padding: 2rem 0;
-}
-
-.about-timeline__track {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0;
-}
-
-.about-timeline__track::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 8px;
-    background: #e7e7e7;
-    border-radius: 999px;
-    transform: translateY(-50%);
-    z-index: 0;
-}
-
-/* Red progress bar on top of the track */
-.about-timeline__track::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 20%;
-    /* Will be updated via JS or kept as static start */
-    height: 8px;
-    background: #dd2c1c;
-    border-radius: 999px;
-    transform: translateY(-50%);
-    z-index: 0;
-    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-timeline__item {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.about-timeline__item:hover {
-    transform: scale(1.05);
-}
-
-.about-timeline__dot {
-    width: 160px;
-    height: 160px;
-    border-radius: 999px;
-    background: #f3f3f3;
-    border: 8px solid #e7e7e7;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-timeline__item:hover .about-timeline__dot {
-    border-color: #ffb4ae;
-}
-
-.about-timeline__item.active .about-timeline__dot {
-    background: #fff;
-    border-color: #dd2c1c;
-    box-shadow: 0 10px 25px -5px rgba(221, 44, 28, 0.15);
-}
-
-.about-timeline__month {
-    color: #b4b4b4;
-    font-size: 1.25rem;
-    line-height: 1.2;
-    font-weight: 500;
-    transition: color 0.4s ease;
-}
-
-.about-timeline__item.active .about-timeline__month {
-    color: #dd2c1c;
-}
-
-.about-timeline__year {
-    color: #151515;
-    font-size: 1.75rem;
-    line-height: 1.1;
-    font-weight: 700;
-}
-
-@media (max-width: 1023px) {
-    .about-timeline__dot {
-        width: 130px;
-        height: 130px;
-        border-width: 6px;
-    }
-
-    .about-timeline__month {
-        font-size: 1rem;
-    }
-
-    .about-timeline__year {
-        font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 991px) {
-    .about-timeline__track {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        display: none;
-        /* Hidden on mobile as we use linear layout */
-    }
-
-    .about-timeline__track::before,
-    .about-timeline__track::after {
-        display: none;
-    }
-}
-
-.timeline-container article {
-    opacity: 0.4;
-    filter: blur(0.5px);
-    transition: all 0.5s ease;
-}
-
-.timeline-container article.active-content {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-}
-
 .services-gallery-swiper {
     overflow: visible;
 }
@@ -278,4 +139,8 @@
     .services-gallery-card {
         height: 360px;
     }
+}
+
+.servicesSwiper .swiper-pagination-bullet-active {
+    background-color: #fff;
 }

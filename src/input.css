@@ -1135,5 +1135,80 @@
   --color-primary: #DD2C1C;
   --color-secondary-b90: #3A3A3A;
   --color-seconday-black: #121212;
-  --text-md: 16px; 
+  --text-md: 16px;
+}
+
+@layer utilities {
+  .blog-hero {
+    @apply relative flex items-end;
+  }
+
+  .tag-label {
+    @apply uppercase tracking-wider transition-all duration-300;
+  }
+
+  .blog-card-wrapper article {
+    @apply h-full transition-all duration-300;
+  }
+
+  .blog-card-wrapper:hover article {
+    @apply -translate-y-1 shadow-md;
+  }
+}
+
+/* =========================================================================
+   India Map Section (ZingChart)
+   ========================================================================= */
+#india-map-chart {
+  background: transparent;
+}
+
+#state-detail-box {
+  filter: drop-shadow(0 20px 25px rgba(225, 60, 43, 0.1));
+  will-change: transform, opacity;
+}
+
+#state-detail-box::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 40px;
+  width: 2px;
+  height: 40px;
+  background: #E13C2B;
+}
+
+#state-detail-box::after {
+  content: '';
+  position: absolute;
+  bottom: -44px;
+  left: 37px;
+  width: 8px;
+  height: 8px;
+  background: #E13C2B;
+  border-radius: 50%;
+}
+
+.zc-img {
+  max-width: 100% !important;
+}
+
+/* Ensure the chart container doesn't overflow on small screens */
+@media (max-width: 768px) {
+  #india-map-chart {
+    height: 500px !important;
+  }
+
+  #state-detail-box {
+    min-width: 260px;
+    padding: 1rem;
+  }
+
+  #detail-state-name {
+    font-size: 1.5rem;
+  }
+
+  #detail-state-value {
+    font-size: 2rem;
+  }
 }
