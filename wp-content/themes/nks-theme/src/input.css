@@ -1,0 +1,1214 @@
+﻿@import "tailwindcss";
+
+
+
+@font-face {
+  font-family: 'Graphik Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/Graphik-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Regular'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Regular-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Regular Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-RegularItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Thin'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Thin-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Thin Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-ThinItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Extralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Extralight'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Extralight-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Extralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Extralight Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-ExtralightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Light'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Light-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Light Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-LightItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Medium'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Medium-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Medium Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-MediumItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Semibold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Semibold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Semibold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-SemiboldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Bold'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Bold-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Bold Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-BoldItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Black'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-Black-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Wide Trial Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Wide Trial Black Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikWide-BlackItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Super';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Super'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-Super-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XCond Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XCond Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXCondensed-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXCond Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXCond Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXCondensed-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXCond Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXCond Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXCondensed-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik XXXXCond Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik XXXXCond Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikXXXXCondensed-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Compact Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Compact Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCompact-SuperItalic-Trial.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Graphik Cond Trial Super Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Graphik Cond Trial Super Italic'), url('../assets/fonts/graphik-trial-cufonfonts-webfont/GraphikCondensed-SuperItalic-Trial.woff') format('woff');
+}
+
+@layer base {
+  :root {
+    --font-sans: "Graphik Trial Regular", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  body {
+    @apply font-sans text-gray-800;
+  }
+}
+
+@theme {
+  --color-primary: #DD2C1C;
+  --color-secondary-b90: #3A3A3A;
+  --color-seconday-black: #121212;
+  --text-md: 16px;
+}
+
+@layer utilities {
+  .blog-hero {
+    @apply relative flex items-end;
+  }
+
+  .tag-label {
+    @apply uppercase tracking-wider transition-all duration-300;
+  }
+
+  .blog-card-wrapper article {
+    @apply h-full transition-all duration-300;
+  }
+
+  .blog-card-wrapper:hover article {
+    @apply -translate-y-1 shadow-md;
+  }
+}
+
+/* =========================================================================
+   India Map Section (ZingChart)
+   ========================================================================= */
+#india-map-chart {
+  background: transparent;
+}
+
+#state-detail-box {
+  filter: drop-shadow(0 20px 25px rgba(225, 60, 43, 0.1));
+  will-change: transform, opacity;
+}
+
+#state-detail-box::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 40px;
+  width: 2px;
+  height: 40px;
+  background: #E13C2B;
+}
+
+#state-detail-box::after {
+  content: '';
+  position: absolute;
+  bottom: -44px;
+  left: 37px;
+  width: 8px;
+  height: 8px;
+  background: #E13C2B;
+  border-radius: 50%;
+}
+
+.zc-img {
+  max-width: 100% !important;
+}
+
+/* Ensure the chart container doesn't overflow on small screens */
+@media (max-width: 768px) {
+  #india-map-chart {
+    height: 500px !important;
+  }
+
+  #state-detail-box {
+    min-width: 260px;
+    padding: 1rem;
+  }
+
+  #detail-state-name {
+    font-size: 1.5rem;
+  }
+
+  #detail-state-value {
+    font-size: 2rem;
+  }
+}

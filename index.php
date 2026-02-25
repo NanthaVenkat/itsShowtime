@@ -1,19 +1,17 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-<main class="container mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold underline mb-4">
-        Wordpress Dashboard
-    </h1>
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-    <?php
-    if (have_posts()) :
-        while (have_posts()) : the_post();
-            the_content();
-        endwhile;
-    else :
-        _e('Sorry, no posts matched your criteria.', 'textdomain');
-    endif;
-    ?>
-</main>
-
-<?php get_footer(); ?>
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
