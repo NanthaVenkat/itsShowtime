@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
         parallaxImages.forEach((image) => {
             if (
                 image.hasAttribute('data-services-hero-image') ||
-                image.hasAttribute('data-gallery-flip-image')
+                image.hasAttribute('data-gallery-flip-image') ||
+                image.closest('#mission-vision')
             ) {
                 return;
             }
@@ -588,9 +589,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const swiperElement = document.querySelector('.myHeroSwiper');
     if (swiperElement) {
         // Pre-hide elements manually to avoid flash
-        swiperElement.querySelectorAll('[data-hero-anim]').forEach(el => {
-            gsap.set(el, { autoAlpha: 0, y: 40 });
-        });
+        if (hasGsap) {
+            swiperElement.querySelectorAll('[data-hero-anim]').forEach(el => {
+                gsap.set(el, { autoAlpha: 0, y: 40 });
+            });
+        }
+
+        if (typeof Swiper === 'undefined') {
+            window.addEventListener('load', initPreloader);
+            return;
+        }
 
         const swiper = new Swiper('.myHeroSwiper', {
             init: false,
@@ -639,22 +647,74 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+    const isMobileViewport = () => window.matchMedia('(max-width: 767px)').matches;
+    const isMobileMenuOpen = () => mobileMenu && !mobileMenu.classList.contains('translate-x-full');
+
+    const closeMobileMenu = () => {
+        if (!mobileMenu) return;
+        if (!mobileMenu.classList.contains('translate-x-full')) {
+            mobileMenu.classList.add('translate-x-full');
+        }
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    const openMobileMenu = () => {
+        if (!mobileMenu || !isMobileViewport()) return;
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.classList.add('overflow-hidden');
+    };
 
     if (menuToggle && mobileMenu) {
+        closeMobileMenu();
+
         menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
+            if (!isMobileViewport()) {
+                closeMobileMenu();
+                return;
+            }
+
+            if (isMobileMenuOpen()) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         });
     }
 
     if (menuClose && mobileMenu) {
-        menuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
+        menuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target === mobileMenu) {
+                closeMobileMenu();
+            }
         });
     }
 
+    mobileMenuLinks.forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // window.addEventListener('scroll', () => {
+    //     if (isMobileMenuOpen()) {
+    //         closeMobileMenu();
+    //     }
+    // }, { passive: true });
+
+    // window.addEventListener('resize', () => {
+    //     if (!isMobileViewport()) {
+    //         closeMobileMenu();
+    //     }
+    // });
+
     // Header Scroll Effect
     const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
+    const headerLogo = document.getElementById('header-logo');
+    const applyHeaderScrollState = () => {
         if (!header) {
             return;
         }
@@ -663,11 +723,20 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.add('bg-black/90', 'backdrop-blur-sm', 'shadow-md');
             header.classList.remove('bg-transparent', 'py-4');
             header.classList.add('py-2');
+            if (headerLogo) {
+                headerLogo.classList.add('header-logo--on-scroll');
+            }
         } else {
             header.classList.remove('bg-black/90', 'backdrop-blur-sm', 'shadow-md', 'py-2');
             header.classList.add('bg-transparent', 'py-4');
+            if (headerLogo) {
+                headerLogo.classList.remove('header-logo--on-scroll');
+            }
         }
-    });
+    };
+
+    window.addEventListener('scroll', applyHeaderScrollState);
+    applyHeaderScrollState();
 
     // =========================================================================
     // Blog Page Scripts
@@ -781,6 +850,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let activeTab = 'mission';
         let activeImageIndex = 0;
         let slideshowTimer = null;
+        let hasSkippedInitialAutoSlide = false;
 
         const updateMainImage = (tab, index, options = {}) => {
             if (!mainImage || !tabImageMap[tab] || !tabImageMap[tab][index]) {
@@ -821,7 +891,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 mainImage.src = nextImage.src;
                 mainImage.alt = nextImage.alt;
-                gsap.set(mainImage, { autoAlpha: 1, scale: 1 });
+                mainImage.style.opacity = '1';
+                mainImage.style.transform = 'scale(1)';
             }
         };
 
@@ -868,6 +939,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             slideshowTimer = window.setInterval(() => {
+                if (!hasSkippedInitialAutoSlide) {
+                    hasSkippedInitialAutoSlide = true;
+                    return;
+                }
+
                 const images = tabImageMap[activeTab] || [];
                 if (!images.length) {
                     return;
@@ -939,8 +1015,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const nextIndex = isMission ? frame : frame - missionImages.length;
 
                     if (nextTab !== activeTab || nextIndex !== activeImageIndex) {
-                        // Use a faster transition for scroll-scrubbed updates
-                        setActiveTab(nextTab, nextIndex, { restart: false, animate: true, scrollScrub: true });
+                        // Use direct swaps while scrubbing to avoid visual flicker.
+                        setActiveTab(nextTab, nextIndex, { restart: false, animate: false, scrollScrub: true });
                     }
                 }
             });
@@ -955,7 +1031,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Services Showcase
     const servicesElement = document.querySelector('.servicesSwiper');
-    if (servicesElement) {
+    if (servicesElement && typeof Swiper !== 'undefined') {
         new Swiper('.servicesSwiper', {
             slidesPerView: 1,
             loop: true,
@@ -977,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Services Page Gallery
     const servicesGalleryElement = document.querySelector('.services-gallery-swiper');
-    if (servicesGalleryElement) {
+    if (servicesGalleryElement && typeof Swiper !== 'undefined') {
         new Swiper('.services-gallery-swiper', {
             slidesPerView: 'auto',
             speed: 650,
@@ -1004,13 +1080,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Testimonial Swiper
     const testimonialElement = document.querySelector('.testimonialSwiper');
-    if (testimonialElement) {
+    if (testimonialElement && typeof Swiper !== 'undefined') {
         new Swiper('.testimonialSwiper', {
             slidesPerView: 1,
             spaceBetween: 18,
             pagination: {
                 el: '.testimonial-pagination',
                 clickable: true
+            },
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false
             },
             breakpoints: {
                 768: {
@@ -1088,23 +1169,139 @@ document.addEventListener('DOMContentLoaded', function () {
         const chartElement = document.getElementById(chartId);
         if (!chartElement) return;
         if (typeof zingchart === 'undefined') return;
+        chartElement.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });
 
         const detailBox = document.getElementById('state-detail-box');
         const stateNameEl = document.getElementById('detail-state-name');
         const stateDescEl = document.getElementById('detail-state-desc');
         const stateValueEl = document.getElementById('detail-state-value');
+        const nonInteractiveStateCodes = new Set(['AN']);
 
-        // State Data Mapping
-        const stateData = {
-            'TN': { name: 'Tamil Nadu', value: '1200+', desc: 'Book your slot for the next event and let your brand shine in front of millions in Tamil Nadu.' },
-            'MH': { name: 'Maharashtra', value: '1500+', desc: 'Driving millions of impressions through immersive experiences in the heart of Maharashtra.' },
-            'KA': { name: 'Karnataka', value: '950+', desc: 'Connecting brands with high-intent audiences across Karnataka\'s tech hubs.' },
-            'DL': { name: 'Delhi', value: '1800+', desc: 'Unmatched brand visibility in the capital region with our premium 3D LED displays.' },
-            'WB': { name: 'West Bengal', value: '800+', desc: 'Captivating audiences in West Bengal with high-impact cinematic advertising.' },
-            'GJ': { name: 'Gujarat', value: '1100+', desc: 'Expanding brand reach across industrial and cultural centers of Gujarat.' },
-            'TG': { name: 'Telangana', value: '900+', desc: 'Innovating brand storytelling in the vibrant markets of Telangana.' },
-            'AP': { name: 'Andhra Pradesh', value: '750+', desc: 'Delivering immersive brand experiences across Andhra Pradesh.' },
-            'UP': { name: 'Uttar Pradesh', value: '1400+', desc: 'Reaching millions in India\'s most populous state with scale and precision.' }
+        // Full India state/UT name mapping for reliable hover labels.
+        const stateNames = {
+            // AN: 'Andaman and Nicobar Islands',
+            AP: 'Andhra Pradesh',
+            AR: 'Arunachal Pradesh',
+            AS: 'Assam',
+            BR: 'Bihar',
+            CG: 'Chhattisgarh',
+            CH: 'Chandigarh',
+            DD: 'Daman and Diu',
+            DL: 'Delhi',
+            DN: 'Dadra and Nagar Haveli',
+            GA: 'Goa',
+            GJ: 'Gujarat',
+            HP: 'Himachal Pradesh',
+            HR: 'Haryana',
+            JH: 'Jharkhand',
+            JK: 'Jammu and Kashmir',
+            KA: 'Karnataka',
+            KL: 'Kerala',
+            LA: 'Ladakh',
+            LD: 'Lakshadweep',
+            MH: 'Maharashtra',
+            ML: 'Meghalaya',
+            MN: 'Manipur',
+            MP: 'Madhya Pradesh',
+            MZ: 'Mizoram',
+            NL: 'Nagaland',
+            OD: 'Odisha',
+            PB: 'Punjab',
+            PY: 'Puducherry',
+            RJ: 'Rajasthan',
+            SK: 'Sikkim',
+            TG: 'Telangana',
+            TN: 'Tamil Nadu',
+            TR: 'Tripura',
+            UP: 'Uttar Pradesh',
+            UT: 'Uttarakhand',
+            WB: 'West Bengal'
+        };
+
+        // Code aliases used by different datasets/maps.
+        const stateCodeAlias = {
+            TS: 'TG',
+            TL: 'TG',
+            OR: 'OD',
+            CT: 'CG',
+            UK: 'UT',
+            UA: 'UT'
+        };
+
+        // Featured states with business values/descriptions.
+        const featuredStateData = {
+            TN: {
+                value: '1200+',
+                desc: 'Book your slot for the next event and let your brand shine in front of millions in Tamil Nadu.'
+            },
+            MH: {
+                value: '1500+',
+                desc: 'Driving millions of impressions through immersive experiences in the heart of Maharashtra.'
+            },
+            KA: {
+                value: '950+',
+                desc: 'Connecting brands with high-intent audiences across Karnataka\'s tech hubs.'
+            },
+            DL: {
+                value: '1800+',
+                desc: 'Unmatched brand visibility in the capital region with our premium 3D LED displays.'
+            },
+            WB: {
+                value: '800+',
+                desc: 'Captivating audiences in West Bengal with high-impact cinematic advertising.'
+            },
+            GJ: {
+                value: '1100+',
+                desc: 'Expanding brand reach across industrial and cultural centers of Gujarat.'
+            },
+            TG: {
+                value: '900+',
+                desc: 'Innovating brand storytelling in the vibrant markets of Telangana.'
+            },
+            AP: {
+                value: '750+',
+                desc: 'Delivering immersive brand experiences across Andhra Pradesh.'
+            },
+            UP: {
+                value: '1400+',
+                desc: 'Reaching millions in India\'s most populous state with scale and precision.'
+            }
+        };
+
+        const normalizeStateCode = (rawStateCode) => {
+            if (!rawStateCode) return '';
+
+            let normalized = String(rawStateCode).toUpperCase().trim();
+
+            // Handles ids like "in.tn", "IND.TN", etc.
+            if (normalized.includes('.')) {
+                const segments = normalized.split('.');
+                normalized = segments[segments.length - 1];
+            }
+
+            return stateCodeAlias[normalized] || normalized;
+        };
+
+        const resolveStateData = (rawStateCode) => {
+            const stateCode = normalizeStateCode(rawStateCode);
+            const stateName = stateNames[stateCode] || stateCode;
+            const featured = featuredStateData[stateCode];
+
+            if (featured) {
+                return {
+                    name: stateName,
+                    value: featured.value,
+                    desc: featured.desc
+                };
+            }
+
+            return {
+                name: stateName,
+                value: 'Coming Soon',
+                desc: `We are expanding our presence in ${stateName}. Stay tuned for more updates!`
+            };
         };
 
         const chartConfig = {
@@ -1118,8 +1315,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         scrolling: false,
                         style: {
                             controls: { visible: false },
-                            backgroundColor: 'transparent',
-                            borderColor: '#E13C2B',
+                            backgroundColor: '#fff0f0',
+                            borderColor: '#fff',
                             borderWidth: '0.5px',
                             item: {
                                 backgroundColor: '#FFF0F0',
@@ -1147,13 +1344,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Event Handling for custom detail box
         zingchart.bind(chartId, 'shape_mouseover', (e) => {
-            const stateCode = e.shapeid; // e.g., 'TN'
-            const data = stateData[stateCode] || { name: stateCode, value: 'Coming Soon', desc: 'We are expanding our presence here. Stay tuned for more updates!' };
+            const stateId = e?.shapeid || e?.plotid || e?.id || '';
+            const normalizedCode = normalizeStateCode(stateId);
+
+            if (nonInteractiveStateCodes.has(normalizedCode)) {
+                if (detailBox && typeof gsap !== 'undefined') {
+                    gsap.to(detailBox, {
+                        autoAlpha: 0,
+                        scale: 0.9,
+                        duration: 0.2
+                    });
+                }
+                chartElement.style.cursor = 'default';
+                return;
+            }
+
+            const data = resolveStateData(stateId);
 
             if (detailBox && typeof gsap !== 'undefined') {
-                stateNameEl.textContent = data.name;
-                stateDescEl.textContent = data.desc;
-                stateValueEl.textContent = data.value;
+                chartElement.style.cursor = 'pointer';
+                if (stateNameEl) stateNameEl.textContent = data.name;
+                if (stateDescEl) stateDescEl.textContent = data.desc;
+                if (stateValueEl) stateValueEl.textContent = data.value;
 
                 // Move detail box near mouse (offset for better visibility)
                 const x = e.ev.clientX;
@@ -1176,6 +1388,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         zingchart.bind(chartId, 'shape_mouseout', () => {
+            chartElement.style.cursor = 'pointer';
             if (detailBox && typeof gsap !== 'undefined') {
                 gsap.to(detailBox, {
                     autoAlpha: 0,
@@ -1187,7 +1400,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Keep detail box following mouse while inside a state
         zingchart.bind(chartId, 'shape_mousemove', (e) => {
-            if (detailBox && typeof gsap !== 'undefined' && detailBox.style.opacity > 0) {
+            const stateId = e?.shapeid || e?.plotid || e?.id || '';
+            const normalizedCode = normalizeStateCode(stateId);
+            if (nonInteractiveStateCodes.has(normalizedCode)) {
+                return;
+            }
+
+            if (
+                detailBox &&
+                typeof gsap !== 'undefined' &&
+                window.getComputedStyle(detailBox).opacity !== '0'
+            ) {
                 const rect = chartElement.getBoundingClientRect();
                 gsap.to(detailBox, {
                     left: e.ev.clientX - rect.left + 20,

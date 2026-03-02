@@ -3,6 +3,16 @@
 function NKs_widget_init()
 {
     register_sidebar([
+        'name' => __('Footer Form', 'nks-theme'),
+        'id' => 'footer-form',
+        'description' => __('Widgets shown in the footer form section.', 'nks-theme'),
+        'before_widget' => '<div class="mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="text-3xl font-semibold mb-5">',
+        'after_title' => '</h4>',
+    ]);
+
+    register_sidebar([
         'name' => __('Footer Widgets', 'nks-theme'),
         'id' => 'footer-widgets',
         'description' => __('Widgets shown in the footer.', 'nks-theme'),

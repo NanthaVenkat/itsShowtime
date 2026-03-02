@@ -1,7 +1,7 @@
 <!-- Footer Form -->
 <?php get_template_part('template-parts/footer-form'); ?>
 
-<footer class="bg-[#121212] text-white pt-16 pb-8 mt-20">
+<footer class="bg-[#121212] text-white pt-16 pb-8">
     <div class="container mx-auto px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
             <?php if (is_active_sidebar('footer-widgets')):
@@ -10,6 +10,7 @@
         </div>
         <div>
             <p>Subscribe to our newsletter </p>
+            <?php echo do_shortcode('[wpforms id="118"]') ?>
         </div>
         <div class="flex gap-12">
             <div>
@@ -40,10 +41,20 @@
         </div> -->
 
     </div>
-    <div class="container mx-auto px-4 lg:px-10 mt-12 text-sm">
-        &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
+    <div class="container mx-auto px-4 lg:px-10 mt-12 font-bold tracking-tight text-lg">
+        Copyrights <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
     </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const footerFormBtn = document.getElementById('wpforms-submit-118');
+        if (footerFormBtn) {
+            footerFormBtn.innerHTML = '<img src="http://localhost/showtime/wp-content/uploads/2026/02/right-vector.svg" alt="submit">';
+            console.log(footerFormBtn);
+        }
+    });
+
+</script>
 
 <?php wp_footer(); ?>
 </body>

@@ -4,10 +4,10 @@
 
 .mission-vision__tab-btn {
     position: relative;
-    padding: 0 0 0.75rem;
-    color: #b4b4b4;
+    padding: 0 0 0.45rem;
+    color: #D4D4D4;
     font-size: 1.0625rem;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: color 0.25s ease;
 }
@@ -19,18 +19,34 @@
     bottom: -1px;
     width: 100%;
     height: 2px;
-    background: #dd2c1c;
+    background: #DD2C1C;
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.25s ease;
 }
 
 .mission-vision__tab-btn:hover {
-    color: #dd2c1c;
+    color: #DD2C1C;
+}
+
+.mission_tab_btn:hover svg path {
+    fill: #DD2C1C;
+}
+
+.vission_tab_btn:hover svg path {
+    stroke: #DD2C1C;
 }
 
 .mission-vision__tab-btn--active {
-    color: #dd2c1c;
+    color: #DD2C1C;
+}
+
+.mission_tab_btn.mission-vision__tab-btn--active svg path {
+    fill: #DD2C1C;
+}
+
+.vission_tab_btn.mission-vision__tab-btn--active svg path {
+    stroke: #DD2C1C;
 }
 
 .mission-vision__tab-btn--active::after {
@@ -58,7 +74,7 @@
 }
 
 .mission-vision__thumb--active {
-    border-color: #dd2c1c;
+    border-color: #DD2C1C;
 }
 
 .testimonialSwiper .swiper-slide-active {
@@ -74,7 +90,7 @@
 
 .testimonial-pagination .swiper-pagination-bullet-active {
     width: 34px;
-    background-color: #dd2c1c;
+    background-color: #DD2C1C;
 }
 
 .nks-nav__list {
@@ -93,6 +109,12 @@
     transition: color 0.25s ease;
 }
 
+@media (min-width: 767px) and (max-width: 1024px) {
+    .nks-nav__list a {
+        font-size: 14px;
+    }
+}
+
 .nks-nav__list a::after {
     content: "";
     position: absolute;
@@ -100,14 +122,14 @@
     bottom: -8px;
     width: 100%;
     height: 1px;
-    background: #dd2c1c;
+    background: #DD2C1C;
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.25s ease;
 }
 
 .nks-nav__list a:hover {
-    color: #dd2c1c;
+    color: #DD2C1C;
 }
 
 .nks-nav__list a:hover::after {
@@ -118,7 +140,7 @@
 .nks-nav__list .current-menu-parent>a,
 .nks-nav__list .current_page_parent>a,
 .nks-nav__list .current-menu-ancestor>a {
-    color: #dd2c1c;
+    color: #DD2C1C;
     font-weight: 500;
 }
 
@@ -131,6 +153,16 @@
 
 .nks-nav__list--mobile a::after {
     bottom: -4px;
+}
+
+.site-logo,
+.site-logo img {
+    transition: filter 0.3s ease;
+}
+
+.site-logo.header-logo--on-scroll,
+.site-logo.header-logo--on-scroll img {
+    filter: brightness(0) invert(1);
 }
 
 .services-gallery-swiper {
@@ -197,7 +229,7 @@
     }
 }
 
- .servicesSwiper .swiper-pagination-bullet-active {
+.servicesSwiper .swiper-pagination-bullet-active {
     background-color: #fff;
 }
 
@@ -214,12 +246,12 @@ body.nks-cursor-enabled [role="button"] {
     cursor: none;
 }
 
- .nks-cursor {
+.nks-cursor {
     width: 26px;
     height: 26px;
     border-radius: 9999px;
     background-color: #ffffff;
-    border: 2px solid #dd2c1c;
+    border: 2px solid #DD2C1C;
     box-shadow: 0 0 0 1px rgba(221, 44, 28, 0.4);
     transform: translate(-50%, -50%);
     mix-blend-mode: difference;
@@ -265,7 +297,7 @@ body.nks-cursor-enabled [role="button"] {
 .nks-cursor--link {
     width: 40px;
     height: 40px;
-    background-color: #dd2c1c;
+    background-color: #DD2C1C;
     border-color: #ffffff;
     box-shadow: 0 0 0 2px rgba(221, 44, 28, 0.65);
 }
@@ -278,4 +310,50 @@ body.nks-cursor-enabled [role="button"] {
 .nks-cursor--link .nks-cursor__icon {
     opacity: 1;
     transform: scale(1);
+}
+
+.wpforms-form-118 input {
+    background-color: transparent;
+}
+
+.timeline_section .timeline_timeline:nth-child(1) {
+    position: relative;
+    right: -60px;
+}
+
+.timeline_section .timeline_timeline:nth-child(2) {
+    position: relative;
+    right: -30px;
+}
+
+.timeline_section .timeline_timeline:nth-child(4) {
+    position: relative;
+    left: -30px;
+}
+
+.timeline_section .timeline_timeline:nth-child(5) {
+    position: relative;
+    left: -60px;
+}
+
+@media screen and (max-width: 1024px) {
+    .timeline_section .timeline_timeline:nth-child(1) {
+        position: relative;
+        right: -48px;
+    }
+
+    .timeline_section .timeline_timeline:nth-child(2) {
+        position: relative;
+        right: -24px;
+    }
+
+    .timeline_section .timeline_timeline:nth-child(4) {
+        position: relative;
+        left: -24px;
+    }
+
+    .timeline_section .timeline_timeline:nth-child(5) {
+        position: relative;
+        left: -48px;
+    }
 }

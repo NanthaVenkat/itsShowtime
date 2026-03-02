@@ -12,17 +12,17 @@
     <?php wp_body_open(); ?>
 
     <!-- Custom Cursor -->
-    <div class="nks-cursor hidden md:flex items-center justify-center pointer-events-none fixed top-0 left-0 z-[9999] mix-blend-difference text-white">
+    <!-- <div class="nks-cursor hidden md:flex items-center justify-center pointer-events-none fixed top-0 left-0 z-[9999] mix-blend-difference text-white">
         <div class="nks-cursor__dot"></div>
         <div class="nks-cursor__icon">
             <i class="fa-solid fa-arrow-up-right"></i>
         </div>
-    </div>
+    </div> -->
 
     <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
         <div class="container mx-auto py-4 px-6 lg:px-12 flex justify-between items-center">
             <!-- Logo -->
-            <div class="site-logo">
+            <div id="header-logo" class="site-logo">
                 <?php if (has_custom_logo()) {
                     the_custom_logo();
                 } else { ?>
@@ -41,8 +41,8 @@
 
             <!-- CTA Button -->
             <div class="hidden md:block">
-                <a href="#"
-                    class="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium capitalize text-lg tracking-wider transition-all duration-300 hover:shadow-red-600/30 transform hover:-translate-y-0.5 whitespace-nowrap">
+                <a href="#wpforms-113"
+                    class="bg-primary hover:bg-red-700 text-sm lg:text-base text-white px-5 py-2 rounded-lg font-medium capitalize text-lg tracking-wider transition-all duration-300 hover:shadow-red-600/30 transform hover:-translate-y-0.5 whitespace-nowrap">
                     Contact Us
                 </a>
             </div>
@@ -56,17 +56,17 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            class="fixed inset-0 bg-black/95 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8">
-            <button id="menu-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-            <?php wp_nav_menu([
-                'theme_location' => 'primary',
-                'container' => false,
-                'menu_class' => 'nks-nav__list nks-nav__list--mobile flex gap-10 transition',
-            ]); ?>
-            <a href="#"
-                class="bg-primary text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wider mt-4">Contact
-                Us</a>
-        </div>
     </header>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-black/95 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8">
+        <button id="menu-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+        <?php wp_nav_menu([
+            'theme_location' => 'primary',
+            'container' => false,
+            'menu_class' => 'nks-nav__list nks-nav__list--mobile flex flex-col items-center gap-10 transition',
+        ]); ?>
+        <a href="#wpforms-113"
+            class="bg-primary text-base text-white px-5 py-2 rounded-lg font-semibold tracking-wider mt-4">Contact
+            Us</a>
+    </div>

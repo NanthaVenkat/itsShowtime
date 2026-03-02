@@ -17,6 +17,14 @@ $mission = get_field('mission_text');
 $vision = get_field('vision_text');
 ?>
 
+<style>
+    @media screen and (min-width: 1024px) {
+        header:not(.bg-black\/90) .nks-nav__list li:not(.current-menu-item) a {
+            color: #202020;
+        }
+    }
+</style>
+
 <main class="about-page bg-white text-[#151515]">
     <section class="pt-40 pb-16">
         <div class="container mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -25,13 +33,13 @@ $vision = get_field('vision_text');
                     <span class="text-[#F59E0B] tracking-wide">★★★★★</span>
                     <span class="ml-2 text-[#3f3f3f]">4.9/5 Reviews</span>
                 </p>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl leading-tight font-semibold mb-5">
+                <h1 class="text-3xl md:text-4xl leading-tight font-semibold mb-5">
                     <?php echo $hero_title; ?>
                 </h1>
                 <?php if ($hero_desc): ?>
                     <p class="text-[#4a4a4a] text-lg max-w-xl mb-8"><?php echo esc_html($hero_desc); ?></p>
                 <?php endif; ?>
-                <a href="<?php echo esc_url(home_url('/contact')); ?>"
+                <a href="#wpforms-113"
                     class="inline-flex items-center justify-between gap-2 rounded-lg bg-primary text-white px-2 py-2 font-medium hover:bg-red-700 transition-colors">
                     Contact Us <span
                         class="inline-flex justify-center items-center p-1 bg-white rounded text-primary text-xs"><i
@@ -47,24 +55,31 @@ $vision = get_field('vision_text');
 
     <section class="bg-primary text-white py-14">
         <div class="container mx-auto px-4 lg:px-10 text-center">
-            <h2 class="text-4xl md:text-5xl font-semibold mb-6"><?php the_field('mid_banner_title'); ?></h2>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6"><?php the_field('mid_banner_title'); ?></h2>
             <p class="max-w-4xl mx-auto text-lg leading-relaxed"><?php the_field('mid_banner_description'); ?></p>
         </div>
     </section>
 
     <section class="py-16 overflow-hidden">
         <div class="container mx-auto px-4 lg:px-10">
-            <h2 class="text-primary text-5xl font-semibold text-center mb-10">Our Direction</h2>
+            <h2 class="text-primary text-3xl md:text-4xl font-semibold text-center mb-10">Our Direction</h2>
             <img src="<?php echo esc_url($dir_img); ?>" alt="Our direction"
                 class="w-full h-[260px] md:h-[420px] object-cover mb-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <article>
-                    <h3 class="text-primary text-3xl font-semibold mb-4">MISSION</h3>
-                    <p class="text-[#434343] text-lg leading-relaxed"><?php echo esc_html($mission); ?></p>
+                    <h3
+                        class="text-primary text-3xl font-medium mb-4 flex gap-2 items-center border-b-2 w-max pb-1.5 px-1.5">
+                        <img src="http://localhost/showtime/wp-content/uploads/2026/02/mission.svg"
+                            alt="Mission">MISSION
+                    </h3>
+                    <p class="text-phara text-lg leading-relaxed"><?php echo esc_html($mission); ?></p>
                 </article>
                 <article>
-                    <h3 class="text-primary text-3xl font-semibold mb-4">VISION</h3>
-                    <p class="text-[#434343] text-lg leading-relaxed"><?php echo esc_html($vision); ?></p>
+                    <h3
+                        class="text-primary text-3xl font-medium mb-4 flex gap-2 items-center border-b-2 w-max pb-1.5 px-1.5">
+                        <img src="http://localhost/showtime/wp-content/uploads/2026/02/vission.svg" alt="Vision">VISION
+                    </h3>
+                    <p class="text-phara text-lg leading-relaxed"><?php echo esc_html($vision); ?></p>
                 </article>
             </div>
         </div>
@@ -72,7 +87,9 @@ $vision = get_field('vision_text');
 
     <section class="py-16 journey-section">
         <div class="container mx-auto px-4 lg:px-10">
-            <h2 class="text-primary text-5xl font-semibold text-center mb-5"><?php the_field('journey_title'); ?></h2>
+            <h2 class="text-primary text-3xl md:text-4xl font-semibold text-center mb-5">
+                <?php the_field('journey_title'); ?>
+            </h2>
             <p class="text-center max-w-3xl mx-auto mb-16"><?php the_field('journey_subtitle'); ?></p>
 
             <div class="relative timeline-container max-w-6xl mx-auto">
@@ -92,24 +109,32 @@ $vision = get_field('vision_text');
                                             <p class="text-sm leading-snug"><?php echo esc_html($chunk[$index]['description']); ?></p>
                                         </article>
                                     <?php else:
-                                        echo '<div></div>'; endif; endforeach; ?>
+                                        echo '<div></div>';
+                                    endif;
+                                endforeach; ?>
                             </div>
 
-                            <div class="grid grid-cols-5 py-6">
+                            <div class="grid grid-cols-5 py-6 timeline_section w-max mx-auto">
                                 <?php foreach ($chunk as $i => $item):
                                     $is_even = ($i % 2 != 0);
                                     $rotate_class = $is_even ? '-rotate-[135deg]' : 'rotate-45';
                                     $inner_rotate = $is_even ? 'rotate-[135deg]' : '-rotate-45';
                                     ?>
-                                    <div
-                                        class="w-50 h-50 xl:w-60 xl:h-60 relative mx-auto border border-[30px] border-[#F5F5F5] border-l-primary border-t-primary <?php echo $rotate_class; ?> rounded-full flex flex-col items-center justify-center">
+                                    <div class="timeline_timeline w-40 h-40 lg:w-48 xl:w-54 lg:h-48 xl:h-54 relative">
                                         <div
-                                            class="h-10 w-0.5 -translate-x-[1px] bg-primary left-0 -top-5 absolute inline-block <?php echo $is_even ? 'rotate-[135deg]' : '-rotate-45'; ?>">
+                                            class="absolute inline-block pointer-events-none h-full w-full left-0 z-[3] <?php echo $is_even ? '-bottom-[25px] rotate-[180deg]' : '-top-[25px] -rotate-0'; ?>">
+                                            <img src="http://localhost/showtime/wp-content/uploads/2026/03/timeline-indigator.svg"
+                                                alt="indigator">
                                         </div>
-                                        <div class="<?php echo $inner_rotate; ?> text-center">
-                                            <p class="font-medium text-xl lg:text-2xl text-primary">
-                                                <?php echo esc_html($item['month']); ?></p>
-                                            <p class="font-semibold text-2xl lg:text-3xl"><?php echo esc_html($item['year']); ?></p>
+                                        <div
+                                            class="h-full w-full mx-auto z-[1] border border-[24px] lg:border-[30px] border-[#F5F5F5] rounded-full flex flex-col items-center justify-center">
+                                            <div class="text-center">
+                                                <p class="font-medium text-xl lg:text-2xl text-primary">
+                                                    <?php echo esc_html($item['month']); ?>
+                                                </p>
+                                                <p class="font-semibold text-2xl lg:text-3xl"><?php echo esc_html($item['year']); ?>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
