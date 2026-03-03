@@ -147,10 +147,10 @@ if (!function_exists('nks_resolve_acf_link')) {
     <!-- map section — untouched -->
     <section class="py-16 bg-white overflow-hidden">
         <div class="container mx-auto">
-            <h2 class="text-primary text-4xl lg:text-6xl font-medium text-center">Driving millions of impressions</h2>
-            <h2 class="text-4xl lg:text-6xl font-medium text-center">through immersive Experiences </h2>
+            <h2 class="text-primary text-3xl lg:text-5xl font-medium text-center">Driving millions of impressions</h2>
+            <h2 class="text-3xl lg:text-5xl font-medium text-center">through immersive Experiences </h2>
 
-            <p class="text-center text-lg lg:text-2xl mt-7 mx-auto max-w-lg font-medium mb-12">Book your slot for the
+            <p class="text-center text-lg lg:text-xl mt-7 mx-auto max-w-lg font-medium mb-12">Book your slot for the
                 next event and let your brand shine in front of millions nationwide.</p>
 
             <div class="relative max-w-5xl mx-auto">
@@ -172,15 +172,15 @@ if (!function_exists('nks_resolve_acf_link')) {
     <section class="py-16 bg-primary text-white">
         <div class="container mx-auto">
             <div class="px-3 sm:px-5 lg:px-10">
-                <h2 class="border border-white rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
+                <h2 class="border border-white text-xs rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
                 <div class="grid lg:grid-cols-[500px_auto] mb-20">
                     <div class="mb-5 lg:mb-0">
-                        <h4 class="font-semibold text-3xl md:text-4xl">
+                        <h4 class="font-semibold text-2xl md:text-4xl">
                             <?php echo esc_html(get_field('about_heading')); ?>
                         </h4>
                     </div>
                     <div>
-                        <p class="font-medium text-md md:text-xl">
+                        <p class="font-medium text-md md:text-lg">
                             <?php echo esc_html(get_field('about_description')); ?>
                         </p>
                     </div>

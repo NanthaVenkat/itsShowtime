@@ -1305,6 +1305,11 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const chartConfig = {
+            gui: {
+                contextMenu: {
+                    visible: false
+                }
+            },
             shapes: [
                 {
                     type: 'zingchart.maps',
