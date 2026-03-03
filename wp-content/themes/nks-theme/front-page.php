@@ -169,7 +169,7 @@ if (!function_exists('nks_resolve_acf_link')) {
     </section>
 
     <!-- about section -->
-    <section class="py-16 bg-primary text-white">
+    <section class="py-16 bg-primary text-white lg:h-screen">
         <div class="container mx-auto">
             <div class="px-3 sm:px-5 lg:px-10">
                 <h2 class="border border-white text-xs rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
@@ -194,7 +194,7 @@ if (!function_exists('nks_resolve_acf_link')) {
                     foreach ($about_images as $item): ?>
                         <img src="<?php echo esc_url($item['about_image']); ?>"
                             alt="<?php echo esc_attr($item['about_image_alt'] ?? 'About image'); ?>"
-                            class="w-full h-[580px] object-cover object-center">
+                            class="w-full h-[480px] lg:h-full object-cover object-center">
                     <?php endforeach;
                 endif; ?>
             </div>
@@ -341,7 +341,7 @@ if (!function_exists('nks_resolve_acf_link')) {
                         if (!empty($service_cards)):
                             foreach ($service_cards as $card): ?>
                                 <div class="border border-white/90 rounded-[10px] p-6 bg-transparent">
-                                    <h3 class="text-2xl md:text-4xl font-bold mb-3">
+                                    <h3 class="text-xl md:text-2xl font-bold mb-3">
                                         <?php echo esc_html($card['service_card_title'] ?? ''); ?>
                                     </h3>
                                     <p class="text-base leading-relaxed">
@@ -353,7 +353,7 @@ if (!function_exists('nks_resolve_acf_link')) {
                 </div>
 
                 <div class="relative sm:px-5 lg:px-0">
-                    <div class="swiper servicesSwiper h-[460px] md:h-[620px] lg:h-full">
+                    <div class="swiper servicesSwiper h-[460px] md:h-full lg:h-full">
                         <div class="swiper-wrapper">
                             <?php
                             $service_slides = nks_normalize_rows(get_field('service_slider_images'));

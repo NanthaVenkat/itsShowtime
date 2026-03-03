@@ -29,7 +29,7 @@ $gallery_images = get_field('gallery_grid');
     <!-- Page hero section -->
     <section class="pt-40 pb-16">
         <div class="container mx-auto px-4 lg:px-10 text-center">
-            <h1 class="text-primary text-4xl md:text-6xl font-semibold leading-tight mb-5">
+            <h1 class="text-primary text-3xl lg:text-5xl font-semibold leading-tight mb-5">
                 <?php echo $hero_title; ?>
             </h1>
             <?php if($hero_subtitle): ?>
@@ -68,7 +68,7 @@ $gallery_images = get_field('gallery_grid');
     <section class="py-16">
         <div class="container mx-auto px-4 lg:px-10">
             <div class="text-center mb-10">
-                <h2 class="text-primary text-4xl md:text-6xl font-semibold mb-4"><?php the_field('projects_title'); ?></h2>
+                <h2 class="text-primary text-3xl lg:text-5xl font-semibold mb-4"><?php the_field('projects_title'); ?></h2>
                 <p class="text-phara font-medium max-w-xl mx-auto"><?php the_field('projects_subtitle'); ?></p>
             </div>
 
