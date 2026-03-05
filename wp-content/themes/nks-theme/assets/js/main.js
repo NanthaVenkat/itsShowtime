@@ -643,6 +643,232 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('load', initPreloader);
     }
 
+    // India Map Chart (front page)
+    const initIndiaMapChart = () => {
+        const chartId = 'india-map-chart';
+        const chartElement = document.getElementById(chartId);
+        if (!chartElement) return;
+        if (typeof zingchart === 'undefined') return;
+
+        chartElement.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });
+
+        const detailBox = document.getElementById('state-detail-box');
+        const stateNameEl = document.getElementById('detail-state-name');
+        const stateDescEl = document.getElementById('detail-state-desc');
+        const stateValueEl = document.getElementById('detail-state-value');
+        const nonInteractiveStateCodes = new Set(['AN']);
+
+        const stateNames = {
+            AP: 'Andhra Pradesh',
+            AR: 'Arunachal Pradesh',
+            AS: 'Assam',
+            BR: 'Bihar',
+            CG: 'Chhattisgarh',
+            CH: 'Chandigarh',
+            DD: 'Daman and Diu',
+            DL: 'Delhi',
+            DN: 'Dadra and Nagar Haveli',
+            GA: 'Goa',
+            GJ: 'Gujarat',
+            HP: 'Himachal Pradesh',
+            HR: 'Haryana',
+            JH: 'Jharkhand',
+            JK: 'Jammu and Kashmir',
+            KA: 'Karnataka',
+            KL: 'Kerala',
+            LA: 'Ladakh',
+            LD: 'Lakshadweep',
+            MH: 'Maharashtra',
+            ML: 'Meghalaya',
+            MN: 'Manipur',
+            MP: 'Madhya Pradesh',
+            MZ: 'Mizoram',
+            NL: 'Nagaland',
+            OD: 'Odisha',
+            PB: 'Punjab',
+            PY: 'Puducherry',
+            RJ: 'Rajasthan',
+            SK: 'Sikkim',
+            TG: 'Telangana',
+            TN: 'Tamil Nadu',
+            TR: 'Tripura',
+            UP: 'Uttar Pradesh',
+            UT: 'Uttarakhand',
+            WB: 'West Bengal'
+        };
+
+        const stateCodeAlias = {
+            TS: 'TG',
+            TL: 'TG',
+            OR: 'OD',
+            CT: 'CG',
+            UK: 'UT',
+            UA: 'UT'
+        };
+
+        const normalizeStateCode = (rawStateCode) => {
+            if (!rawStateCode) return '';
+
+            let normalized = String(rawStateCode).toUpperCase().trim();
+            if (normalized.includes('.')) {
+                const segments = normalized.split('.');
+                normalized = segments[segments.length - 1];
+            }
+
+            return stateCodeAlias[normalized] || normalized;
+        };
+
+        const featuredStateData = {};
+        const sourceData = document.querySelectorAll('#map-featured-state-data [data-state-code]');
+        sourceData.forEach((el) => {
+            const code = normalizeStateCode(el.getAttribute('data-state-code'));
+            if (!code) return;
+
+            featuredStateData[code] = {
+                value: el.getAttribute('data-value') || 'Coming Soon',
+                desc: el.getAttribute('data-content') || ''
+            };
+        });
+
+        const resolveStateData = (rawStateCode) => {
+            const stateCode = normalizeStateCode(rawStateCode);
+            const stateName = stateNames[stateCode] || stateCode;
+            const featured = featuredStateData[stateCode];
+
+            if (featured) {
+                return {
+                    name: stateName,
+                    value: featured.value,
+                    desc: featured.desc || ``
+                };
+            }
+
+            return {
+                name: stateName,
+                value: 'Coming Soon',
+                desc: `We are expanding our presence in ${stateName}. Stay tuned for more updates!`
+            };
+        };
+
+        const chartConfig = {
+            gui: {
+                contextMenu: {
+                    visible: false
+                }
+            },
+            shapes: [
+                {
+                    type: 'zingchart.maps',
+                    options: {
+                        name: 'ind',
+                        panning: false,
+                        zooming: false,
+                        scrolling: false,
+                        style: {
+                            controls: { visible: false },
+                            backgroundColor: '#fff0f0',
+                            borderColor: '#fff',
+                            borderWidth: '0.5px',
+                            item: {
+                                backgroundColor: '#FFF0F0',
+                                cursor: 'pointer'
+                            },
+                            hoverState: {
+                                backgroundColor: '#E13C2B',
+                                transition: 'all 0.2s ease-in-out'
+                            },
+                            tooltip: {
+                                visible: false
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+
+        zingchart.render({
+            id: chartId,
+            data: chartConfig,
+            height: '100%',
+            width: '100%'
+        });
+
+        zingchart.bind(chartId, 'shape_mouseover', (e) => {
+            const stateId = e?.shapeid || e?.plotid || e?.id || '';
+            const normalizedCode = normalizeStateCode(stateId);
+
+            if (nonInteractiveStateCodes.has(normalizedCode)) {
+                if (detailBox && hasGsap) {
+                    gsap.to(detailBox, {
+                        autoAlpha: 0,
+                        scale: 0.9,
+                        duration: 0.2
+                    });
+                }
+                chartElement.style.cursor = 'default';
+                return;
+            }
+
+            const data = resolveStateData(stateId);
+
+            chartElement.style.cursor = 'pointer';
+            if (stateNameEl) stateNameEl.textContent = data.name;
+            if (stateDescEl) stateDescEl.textContent = data.desc;
+            if (stateValueEl) stateValueEl.textContent = data.value;
+
+            if (detailBox && hasGsap && e?.ev) {
+                const rect = chartElement.getBoundingClientRect();
+                const offsetX = e.ev.clientX - rect.left + 20;
+                const offsetY = e.ev.clientY - rect.top - 100;
+
+                gsap.to(detailBox, {
+                    left: offsetX,
+                    top: offsetY,
+                    autoAlpha: 1,
+                    scale: 1,
+                    duration: 0.35,
+                    ease: 'back.out(1.7)'
+                });
+            }
+        });
+
+        zingchart.bind(chartId, 'shape_mouseout', () => {
+            chartElement.style.cursor = 'pointer';
+            if (detailBox && hasGsap) {
+                gsap.to(detailBox, {
+                    autoAlpha: 0,
+                    scale: 0.9,
+                    duration: 0.25
+                });
+            }
+        });
+
+        zingchart.bind(chartId, 'shape_mousemove', (e) => {
+            const stateId = e?.shapeid || e?.plotid || e?.id || '';
+            const normalizedCode = normalizeStateCode(stateId);
+            if (nonInteractiveStateCodes.has(normalizedCode)) {
+                return;
+            }
+
+            if (
+                detailBox &&
+                hasGsap &&
+                e?.ev &&
+                window.getComputedStyle(detailBox).opacity !== '0'
+            ) {
+                const rect = chartElement.getBoundingClientRect();
+                gsap.to(detailBox, {
+                    left: e.ev.clientX - rect.left + 20,
+                    top: e.ev.clientY - rect.top - 100,
+                    duration: 0.1,
+                    overwrite: 'auto'
+                });
+            }
+        });
+    };
+
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
@@ -1154,280 +1380,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Home
     // (hero + preloader are auto-initialized above when .myHeroSwiper exists)
+    initIndiaMapChart();
 
     // Gallery
     initGalleryFlipAnimation();
 
     // Services
-    initServicesHeroImageAnimation();
-
-    // =========================================================================
-    // India Map Chart (ZingChart)
-    // =========================================================================
-    function initIndiaMapChart() {
-        const chartId = 'india-map-chart';
-        const chartElement = document.getElementById(chartId);
-        if (!chartElement) return;
-        if (typeof zingchart === 'undefined') return;
-        chartElement.addEventListener('contextmenu', (event) => {
-            event.preventDefault();
-        });
-
-        const detailBox = document.getElementById('state-detail-box');
-        const stateNameEl = document.getElementById('detail-state-name');
-        const stateDescEl = document.getElementById('detail-state-desc');
-        const stateValueEl = document.getElementById('detail-state-value');
-        const nonInteractiveStateCodes = new Set(['AN']);
-
-        // Full India state/UT name mapping for reliable hover labels.
-        const stateNames = {
-            // AN: 'Andaman and Nicobar Islands',
-            AP: 'Andhra Pradesh',
-            AR: 'Arunachal Pradesh',
-            AS: 'Assam',
-            BR: 'Bihar',
-            CG: 'Chhattisgarh',
-            CH: 'Chandigarh',
-            DD: 'Daman and Diu',
-            DL: 'Delhi',
-            DN: 'Dadra and Nagar Haveli',
-            GA: 'Goa',
-            GJ: 'Gujarat',
-            HP: 'Himachal Pradesh',
-            HR: 'Haryana',
-            JH: 'Jharkhand',
-            JK: 'Jammu and Kashmir',
-            KA: 'Karnataka',
-            KL: 'Kerala',
-            LA: 'Ladakh',
-            LD: 'Lakshadweep',
-            MH: 'Maharashtra',
-            ML: 'Meghalaya',
-            MN: 'Manipur',
-            MP: 'Madhya Pradesh',
-            MZ: 'Mizoram',
-            NL: 'Nagaland',
-            OD: 'Odisha',
-            PB: 'Punjab',
-            PY: 'Puducherry',
-            RJ: 'Rajasthan',
-            SK: 'Sikkim',
-            TG: 'Telangana',
-            TN: 'Tamil Nadu',
-            TR: 'Tripura',
-            UP: 'Uttar Pradesh',
-            UT: 'Uttarakhand',
-            WB: 'West Bengal'
-        };
-
-        // Code aliases used by different datasets/maps.
-        const stateCodeAlias = {
-            TS: 'TG',
-            TL: 'TG',
-            OR: 'OD',
-            CT: 'CG',
-            UK: 'UT',
-            UA: 'UT'
-        };
-
-        // Featured states with business values/descriptions.
-        const featuredStateData = {
-            TN: {
-                value: '1200+',
-                desc: 'Book your slot for the next event and let your brand shine in front of millions in Tamil Nadu.'
-            },
-            MH: {
-                value: '1500+',
-                desc: 'Driving millions of impressions through immersive experiences in the heart of Maharashtra.'
-            },
-            KA: {
-                value: '950+',
-                desc: 'Connecting brands with high-intent audiences across Karnataka\'s tech hubs.'
-            },
-            DL: {
-                value: '1800+',
-                desc: 'Unmatched brand visibility in the capital region with our premium 3D LED displays.'
-            },
-            WB: {
-                value: '800+',
-                desc: 'Captivating audiences in West Bengal with high-impact cinematic advertising.'
-            },
-            GJ: {
-                value: '1100+',
-                desc: 'Expanding brand reach across industrial and cultural centers of Gujarat.'
-            },
-            TG: {
-                value: '900+',
-                desc: 'Innovating brand storytelling in the vibrant markets of Telangana.'
-            },
-            AP: {
-                value: '750+',
-                desc: 'Delivering immersive brand experiences across Andhra Pradesh.'
-            },
-            UP: {
-                value: '1400+',
-                desc: 'Reaching millions in India\'s most populous state with scale and precision.'
-            }
-        };
-
-        const normalizeStateCode = (rawStateCode) => {
-            if (!rawStateCode) return '';
-
-            let normalized = String(rawStateCode).toUpperCase().trim();
-
-            // Handles ids like "in.tn", "IND.TN", etc.
-            if (normalized.includes('.')) {
-                const segments = normalized.split('.');
-                normalized = segments[segments.length - 1];
-            }
-
-            return stateCodeAlias[normalized] || normalized;
-        };
-
-        const resolveStateData = (rawStateCode) => {
-            const stateCode = normalizeStateCode(rawStateCode);
-            const stateName = stateNames[stateCode] || stateCode;
-            const featured = featuredStateData[stateCode];
-
-            if (featured) {
-                return {
-                    name: stateName,
-                    value: featured.value,
-                    desc: featured.desc
-                };
-            }
-
-            return {
-                name: stateName,
-                value: 'Coming Soon',
-                desc: `We are expanding our presence in ${stateName}. Stay tuned for more updates!`
-            };
-        };
-
-        const chartConfig = {
-            gui: {
-                contextMenu: {
-                    visible: false
-                }
-            },
-            shapes: [
-                {
-                    type: 'zingchart.maps',
-                    options: {
-                        name: 'ind',
-                        panning: false,
-                        zooming: false,
-                        scrolling: false,
-                        style: {
-                            controls: { visible: false },
-                            backgroundColor: '#fff0f0',
-                            borderColor: '#fff',
-                            borderWidth: '0.5px',
-                            item: {
-                                backgroundColor: '#FFF0F0',
-                                cursor: 'pointer'
-                            },
-                            hoverState: {
-                                backgroundColor: '#E13C2B',
-                                transition: 'all 0.2s ease-in-out'
-                            },
-                            tooltip: {
-                                visible: false
-                            }
-                        }
-                    }
-                }
-            ]
-        };
-
-        zingchart.render({
-            id: chartId,
-            data: chartConfig,
-            height: '100%',
-            width: '100%'
-        });
-
-        // Event Handling for custom detail box
-        zingchart.bind(chartId, 'shape_mouseover', (e) => {
-            const stateId = e?.shapeid || e?.plotid || e?.id || '';
-            const normalizedCode = normalizeStateCode(stateId);
-
-            if (nonInteractiveStateCodes.has(normalizedCode)) {
-                if (detailBox && typeof gsap !== 'undefined') {
-                    gsap.to(detailBox, {
-                        autoAlpha: 0,
-                        scale: 0.9,
-                        duration: 0.2
-                    });
-                }
-                chartElement.style.cursor = 'default';
-                return;
-            }
-
-            const data = resolveStateData(stateId);
-
-            if (detailBox && typeof gsap !== 'undefined') {
-                chartElement.style.cursor = 'pointer';
-                if (stateNameEl) stateNameEl.textContent = data.name;
-                if (stateDescEl) stateDescEl.textContent = data.desc;
-                if (stateValueEl) stateValueEl.textContent = data.value;
-
-                // Move detail box near mouse (offset for better visibility)
-                const x = e.ev.clientX;
-                const y = e.ev.clientY;
-
-                // Keep box visible inside container
-                const rect = chartElement.getBoundingClientRect();
-                const offsetX = x - rect.left + 20;
-                const offsetY = y - rect.top - 100;
-
-                gsap.to(detailBox, {
-                    left: offsetX,
-                    top: offsetY,
-                    autoAlpha: 1,
-                    scale: 1,
-                    duration: 0.4,
-                    ease: 'back.out(1.7)'
-                });
-            }
-        });
-
-        zingchart.bind(chartId, 'shape_mouseout', () => {
-            chartElement.style.cursor = 'pointer';
-            if (detailBox && typeof gsap !== 'undefined') {
-                gsap.to(detailBox, {
-                    autoAlpha: 0,
-                    scale: 0.9,
-                    duration: 0.3
-                });
-            }
-        });
-
-        // Keep detail box following mouse while inside a state
-        zingchart.bind(chartId, 'shape_mousemove', (e) => {
-            const stateId = e?.shapeid || e?.plotid || e?.id || '';
-            const normalizedCode = normalizeStateCode(stateId);
-            if (nonInteractiveStateCodes.has(normalizedCode)) {
-                return;
-            }
-
-            if (
-                detailBox &&
-                typeof gsap !== 'undefined' &&
-                window.getComputedStyle(detailBox).opacity !== '0'
-            ) {
-                const rect = chartElement.getBoundingClientRect();
-                gsap.to(detailBox, {
-                    left: e.ev.clientX - rect.left + 20,
-                    top: e.ev.clientY - rect.top - 100,
-                    duration: 0.1,
-                    overwrite: 'auto'
-                });
-            }
-        });
-    }
-
-    initIndiaMapChart();
+    initServicesHeroImageAnimation();    
 
     // =========================================================================
     // Custom Cursor

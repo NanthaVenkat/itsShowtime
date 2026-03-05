@@ -145,7 +145,7 @@ if (!function_exists('nks_resolve_acf_link')) {
     </section>
 
     <!-- map section — untouched -->
-    <section class="py-16 bg-white overflow-hidden">
+    <!-- <section class="py-16 bg-white overflow-hidden">
         <div class="container mx-auto">
             <h2 class="text-primary text-3xl lg:text-5xl font-medium text-center">Driving millions of impressions</h2>
             <h2 class="text-3xl lg:text-5xl font-medium text-center">through immersive Experiences </h2>
@@ -156,7 +156,7 @@ if (!function_exists('nks_resolve_acf_link')) {
             <div class="relative max-w-5xl mx-auto">
                 <div id="india-map-chart" class="w-full h-[600px] md:h-[800px]"></div>
 
-                <!-- Custom state Detail box (Figma Style) -->
+                // Custom state Detail box (Figma Style)
                 <div id="state-detail-box"
                     class="absolute pointer-events-none opacity-0 z-50 bg-[#FDF8F8] border border-primary/30 p-6 rounded-2xl shadow-xl transition-all duration-300 min-w-[300px]">
                     <h3 id="detail-state-name" class="text-primary text-3xl font-bold mb-3">State Name</h3>
@@ -166,10 +166,58 @@ if (!function_exists('nks_resolve_acf_link')) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <section class="py-16 bg-white overflow-hidden">
+    <div class="container mx-auto">
+
+        <?php 
+        // ✅ Must enter the group before accessing sub-fields
+        if( have_rows('map_section') ): while( have_rows('map_section') ): the_row(); 
+        ?>
+
+        <h2 class="text-primary text-3xl lg:text-5xl font-medium text-center">
+            <?php the_sub_field('map_title_1'); ?>
+        </h2>
+        <h2 class="text-3xl lg:text-5xl font-medium text-center">
+            <?php the_sub_field('map_title_2'); ?>
+        </h2>
+
+        <p class="text-center text-lg lg:text-xl mt-7 mx-auto max-w-lg font-medium mb-12">
+            <?php the_sub_field('map_description'); ?>
+        </p>
+
+        <div class="relative max-w-5xl mx-auto">
+            <div id="india-map-chart" class="w-full h-[600px] md:h-[800px]"></div>
+
+            <div id="state-detail-box"
+                class="absolute pointer-events-none opacity-0 z-50 bg-[#FDF8F8] border border-primary/30 p-6 rounded-2xl shadow-xl transition-all duration-300 min-w-[300px]">
+                <h3 id="detail-state-name" class="text-primary text-3xl font-bold mb-3">State Name</h3>
+                <p id="detail-state-desc" class="text-gray-700 text-sm mb-4 leading-relaxed">Loading details...</p>
+                <p id="detail-state-value" class="text-primary text-4xl font-bold">0</p>
+            </div>
+        </div>
+
+        <!-- ✅ Hidden data store — reads from nested repeater inside the group -->
+        <div id="map-featured-state-data" class="hidden">
+            <?php if( have_rows('map_state_data') ): ?>
+                <?php while( have_rows('map_state_data') ): the_row(); ?>
+                    <div 
+                        data-state-code="<?php echo esc_attr( strtoupper( get_sub_field('state_code') ) ); ?>"
+                        data-value="<?php echo esc_attr( get_sub_field('impressions_value') ); ?>"
+                        data-content="<?php echo esc_attr( get_sub_field('state_description') ); ?>">
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+        <?php endwhile; endif; // end map_section group ?>
+
+    </div>
+</section>
 
     <!-- about section -->
-    <section class="py-16 bg-primary text-white lg:h-screen">
+    <section class="py-16 bg-primary text-white lg:h-screen overflow-x-hidden">
         <div class="container mx-auto">
             <div class="px-3 sm:px-5 lg:px-10">
                 <h2 class="border border-white text-xs rounded-full inline-block px-3 py-1.5 mb-5">About</h2>
@@ -202,7 +250,7 @@ if (!function_exists('nks_resolve_acf_link')) {
     </section>
 
     <!-- Mission Vision -->
-    <section class="py-16 h-screen">
+    <section class="py-16 lg:h-screen">
         <div class="container h-full px-3 sm:px-5 lg:px-10 mx-auto mission-vision" id="mission-vision">
             <?php
             $mission_images = nks_normalize_rows(get_field('mission_images'));
@@ -428,5 +476,4 @@ if (!function_exists('nks_resolve_acf_link')) {
     </section>
 
 </main>
-
 <?php get_footer(); ?>
